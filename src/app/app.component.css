@@ -1,5 +1,13 @@
-body {    
-    background: black url(../../public/bg.jpg) no-repeat top center fixed;
-    -webkit-background-size: cover !important;
-    background-size: cover !important;
+html, body {
+    height: 100%;
+    margin: 0;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Assure que le wrapper occupe au moins la hauteur de la page */
+}
+
+.content {
+    flex: 1; /* Prend tout l'espace restant */
 }
