@@ -1,10 +1,10 @@
 .background-img {
+    height: 100%;
     background-image: 
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('../../../../public/starry-sky.png'); 
+    url('../../../../public/ressource/starry-sky.png'); 
     background-size: cover;
     background-position: center;
-    height: 90vh;
     color: white;
     display: flex;
     flex-direction: column;
@@ -15,6 +15,7 @@
 .background-img h1 {
     font-size: 50px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 250px;
 }
 
 .background-img p {
@@ -46,13 +47,25 @@
     text-align: center;
     display: block;
     font-size: 25px !important;
+    width: 700px;
 }
 h1{
     font-size: 80px !important;
 }
-img{
-    width:200px;
+.second-img{
+    background-image:
+    url('../../../../public/ressource/image.png'); 
+    width:430px ;
+    height: 242px;
 }
 .second-div{
     display: flex;
+    justify-content: space-around;
+    /* height: 30%; */
+    padding-block: 200px;
 }
+.div-text{
+    width:40%;
+}
+
+

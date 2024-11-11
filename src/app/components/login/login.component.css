@@ -1,0 +1,72 @@
+.first-container {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../../../../public/ressource/starry-sky.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    border-radius: 25px;
+    padding: 1.9rem 1.2rem;
+    color: white;
+    height: 400px;
+    text-align: center;
+}
+
+#emailHelp {
+    margin-bottom: 30px;
+}
+
+.forgot-password {
+    color: #ffffff;
+    margin-top: 15px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: white;
+    margin-top: 25px;
+}
+
+button {
+    display: block;
+    margin: 20px auto 0;
+    font-weight: 500;
+    width: 100px;
+    border-radius: 6em;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+p {
+    color: white;
+}
