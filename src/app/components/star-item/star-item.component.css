@@ -84,37 +84,37 @@
     }
 
 
-
+/* 
 /* THE CARD HOLDS THE FRONT AND BACK FACES */
-.thecard{
+/* .thecard{
   perspective: 1000px;
     transform-style: preserve-3d;
     transition: transform 0.8s ease-in-out;
-}
+} */
 
 /* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
-.thecard:hover{
+/* .thecard:hover{
   transform: rotateY(180deg);
-}
+} */
 
-/* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
+/* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT
  .thefront{
  
   backface-visibility: hidden;
   overflow: hidden;
  
 
-}
+} */
 
 /* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
-.theback {
+/* .theback {
   position: relative;
   bottom: 250px;
   backface-visibility:hidden;
   overflow: hidden;
   transform: rotateY(180deg);
  
-}
+}  */
 
 
 

@@ -1,8 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { DinarPipe } from '../../pipes/dinar.pipe';
 import { Star } from '../../Classes/StarClass/star';
-import { StarService } from '../../services/star.service';
-import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -15,12 +13,13 @@ import { CartService } from '../../services/cart.service';
 export class CartComponent {
   stars !: Star[];
   private cartService : CartService = inject(CartService);
+
   
   
  
   ngOnInit(): void {
     this.stars = this.cartService.getCart();
-    
+   
     
     
   }

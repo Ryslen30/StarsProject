@@ -14,22 +14,19 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './stars-list.component.css'
 })
 export class StarsListComponent implements OnInit {
-private _starService: StarService= inject(StarService);
-
-stars! :Star[];
-
+  private _starService: StarService= inject(StarService);
+  
+  stars! :Star[];
+  
+  onUpdate($event: string) {
+    this.getStars();
+  }
 
 
 getStars(){
   this._starService.getStars().subscribe(data => this.stars=data);
 }
-onUpdate(id : string) {
-  const parkUpdated= this.stars.find(p=> p._id== id);
-  if(parkUpdated){
-    parkUpdated.likes++;
-  }
 
- }
  
 
 

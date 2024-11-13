@@ -17,7 +17,10 @@ export class StarService {
     return this.http.get<Star>(this.URL+'getStar/' +id);
 
   }
- 
+  updateStar(id:string, s : Star):Observable<Star>{
+    return this.http.put<Star>(this.URL+'StarUpdate/' + id, s );
+
+  }
   
   
 

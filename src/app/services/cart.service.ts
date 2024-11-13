@@ -1,21 +1,30 @@
-import { inject, Injectable } from '@angular/core';
+import {Injectable } from '@angular/core';
 import { Star } from '../Classes/StarClass/star';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private stars: Star[]=[];
   
   addToCart(star: Star) : void {
     if (star){
-    this.stars.push(star);
-    console.log("tableau des stars :" +JSON.stringify(this.stars));
+      let cart = this.getCart();
+      if(cart){
+        cart.push(star);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+
+      }
+    console.log("tableau des stars :" + JSON.stringify(cart));
     
     }
   }
   getCart(){
-    return this.stars;
+    let cart =localStorage.getItem('cart');
+    if(cart)
+    return JSON.parse(cart);
+  else
+    return [];
   }
   
   

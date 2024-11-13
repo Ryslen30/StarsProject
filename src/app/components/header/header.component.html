@@ -1,3 +1,4 @@
+<div style="text-align: center; background-color:burlywood;"><a class="nav-link fs-6" routerLink="/stars"><i class="bi bi-stars"></i>Explore Stars</a></div>
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark" data-bs-theme="dark">
   <div class="container-fluid">
     <!-- Navbar brand -->
@@ -34,13 +35,26 @@
       </div>
 
       <!-- Right-aligned items: Login, Signup, and Cart -->
-      <div class="d-flex ms-auto align-items-center gap-2">
+      <div class="d-flex ms-auto align-items-center gap-4" >
         <button class="btn btn-outline-warning" routerLink="/login" routerLinkActive="router-link-active">Login</button>
         <button class="btn btn-outline-warning" routerLink="/signup" routerLinkActive="router-link-active">Sign Up</button>
-        <button routerLink="/cart" class="btn btn-outline-light">
+        <button routerLink="/cart" class="btn btn-outline-light m-2" >
           <i class="bi bi-bag fs-4"></i>
         </button>
+     
       </div>
     </div>
   </div>
 </nav>
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bag fs-4"></i></button>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <app-cart></app-cart>
+  </div>
+</div>
+
