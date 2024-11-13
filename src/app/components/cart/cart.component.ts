@@ -11,6 +11,8 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './cart.component.css'
 })
 export class CartComponent {
+  
+
   stars !: Star[];
   private cartService : CartService = inject(CartService);
 
@@ -23,6 +25,4 @@ export class CartComponent {
     
     
   }
-
-
 }

@@ -1,26 +1,35 @@
-<div class="background">
-<form class="form bg-dark">
-    <h1 class="title">Register </h1>
-    <p class="message">Signup now and get full access to our app. </p>
-        <div class="names">
-        <label>
-            <input class="input" type="text" placeholder="First name" required="">
-        </label>
-        <label>
-            <input class="input" type="text" placeholder="Last name" required="">
-        </label>
-    </div>  
-    <label>
-        <input class="input" type="email" placeholder="Email" required="">
-    </label> 
-        
-    <label>
-        <input class="input" type="password" placeholder="Password" required="">
-    </label>
-    <label>
-        <input class="input" type="password" placeholder="Confirm password" required="">
-    </label>
-    <button class="submit">Submit</button>
-    <p class="signin">Already have an acount ? <a class="text-warning" routerLink="/login">Login</a> </p>
-</form>
-</div>
+
+
+<div class="container-fluid p-0">
+    <div class="booking-content">
+      <!-- Left Image Section -->
+      <div class="booking-image"></div>
+      <!-- Right Form Section -->
+      <div class="booking-form d-flex flex-column justify-content-center">
+        <h1 class="text-dark">sign-up</h1>
+        <form action="#">
+            <div class="mb-3 col-12 d-flex me-2">
+              <input type="text" class="form-control" id="firstName" placeholder="First Name" required style="margin-right: 10px;">
+              <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+            </div>
+          <div class="mb-3">
+            <input type="email" class="form-control" id="email" placeholder="Email address" required>
+          </div>
+          <div class="mb-3">
+            <input type="password" class="form-control" id="password" placeholder="Password" required>
+          </div>
+          <div class="mb-3">
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
+          </div>
+
+          <button type="submit" class="btn btn-custom btn-info">sign-up</button>
+          <div class="form-footer">
+            <a routerLink="/forgotpassword" class="text-dark">Forgot Password?</a><br><br>
+            Already have an account?  <a routerLink="/login" class="text-dark">Sign-in</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+            

@@ -1,0 +1,21 @@
+<div class="thecard card m-2  " style="width: 18rem;">
+  <div class="thefront">
+
+    <img class="card-img-top "  [src]="'http://127.0.0.1:3000/getimage/' + star.photo" alt="Star image" height="339" >
+    <div class="card-body">
+      <h5 class="card-title text-light">{{star.name}}</h5>
+
+      <p class="card-text text-light">Likes :{{star.likes}}</p>
+      <p class="card-text text-light">{{star.price | dinar}}</p>
+    </div>
+    
+    
+  </div>
+  <button (click)="onUpdate()" class="btn btn-danger"><i class="bi bi-heart-fill"></i>Like</button>
+  <div class=" theback d-flex" style="justify-content: space-evenly;">
+<a [routerLink]="['/stars', star._id]" class="btn btn-primary">Know more </a>
+<a (click)="onClick()"  class="btn btn-primary">Add to Cart </a>
+
+
+</div>
+</div>

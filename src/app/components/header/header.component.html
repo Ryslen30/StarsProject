@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark" data-bs-theme="dark">
   <div class="container-fluid">
     <!-- Navbar brand -->
-    <a class="navbar-brand m-3 fs-4" routerLink="/home" routerLinkActive="router-link-active">Starlik</a>
+    <a class="navbar-brand m-3 fs-4" routerLink="/home" routerLinkActive="active">Starlik</a>
 
     <!-- Toggle button for small screens -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -15,16 +15,16 @@
       <!-- Left-aligned links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link fs-5" aria-current="page" routerLink="/home" routerLinkActive="router-link-active">Home</a>
+          <a class="nav-link fs-5" aria-current="page" routerLink="/home" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs-5" routerLink="/about" routerLinkActive="router-link-active">About</a>
+          <a class="nav-link fs-5" routerLink="/about" routerLinkActive="active">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs-5" routerLink="/contact" routerLinkActive="router-link-active">Contact</a>
+          <a class="nav-link fs-5" routerLink="/contact" routerLinkActive="active">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs-5" routerLink="/stars" routerLinkActive="router-link-active">View stars</a>
+          <a class="nav-link fs-5" routerLink="/stars" routerLinkActive="active">View stars</a>
         </li>
       </ul>
 
@@ -36,25 +36,9 @@
 
       <!-- Right-aligned items: Login, Signup, and Cart -->
       <div class="d-flex ms-auto align-items-center gap-4" >
-        <button class="btn btn-outline-warning" routerLink="/login" routerLinkActive="router-link-active">Login</button>
-        <button class="btn btn-outline-warning" routerLink="/signup" routerLinkActive="router-link-active">Sign Up</button>
-        <button routerLink="/cart" class="btn btn-outline-light m-2" >
-          <i class="bi bi-bag fs-4"></i>
-        </button>
-     
+        <button class="btn btn-outline-info" routerLink="/login" routerLinkActive="active">Sign-in</button>
+        <button class="btn btn-outline-info" routerLink="/cart" routerLinkActive="active"><i class="bi bi-cart"></i></button>
       </div>
     </div>
   </div>
 </nav>
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bag fs-4"></i></button>
-
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-  <div class="offcanvas-header">
-    <h5 id="offcanvasRightLabel">Offcanvas right</h5>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <app-cart></app-cart>
-  </div>
-</div>
-

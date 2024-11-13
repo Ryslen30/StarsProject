@@ -1,0 +1,10 @@
+.visited{
+    font-weight: bold;
+    text-decoration:underline;
+}
+i:hover{
+    color:black;
+}
+.text-light{
+    color: black;
+}

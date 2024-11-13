@@ -1,76 +1,47 @@
-.background{
-  height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../../../../public/ressource/starry-sky.png');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-h1{
-    text-align: center;
-}
-.form{
+
+.booking-content {
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 400px;
-    padding: 20px;
-    border-radius: 20px;
-    position: relative;
-    background-color: #1a1a1a;
-    color: #fff;
-    border: 1px solid #333;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-.signin{
-    margin-left: 60px;
-}
-input{
-    border-radius: 10px;
-    font-size: medium;
-    background-color: #fff;
-  color: #333;
-  width: 100%;
-  padding: 20px 05px 05px 10px;
-  outline: 0;
-  border: 1px solid rgba(105, 105, 105, 0.397);
-  border-radius: 10px;
-}
-.names{
-    display: flex;
-    gap: 10px;
-}
-button {
-    display: block;
-    margin: 20px auto 0;
-    font-weight: 500;
-    height: 50px;
-    width: 150px;
-    border-radius: 6em;
-}
+    align-items: center;
+    background-color: #f8f9fa;
+  }
 
-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
+  .booking-image {
+    width: 70%;
+    background:  url('../../../../public/ressource/theone.png') center center;
+    background-size: cover;
+    height: 100vh;
+  }
 
-button:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
+  .booking-form {
+    width: 50%;
+    padding: 40px;
+  }
 
-button:after {
-    content: "";
-    display: inline-block;
-    height: 100%;
+  .booking-form h1 {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .form-control {
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 15px;
+  }
+
+  .btn-custom {
     width: 100%;
-    border-radius: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all 0.4s;
-}
+    padding: 10px;
+    font-weight: bold;
+    border: none;
+    color: white;
+    border-radius: 5px;
+  }
+
+  .btn-custom:hover {
+    opacity: 0.9;
+  }
+
+  .form-footer {
+    margin-top: 15px;
+  }

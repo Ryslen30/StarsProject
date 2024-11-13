@@ -1,0 +1,14 @@
+@if (star) {
+    <div class="card text-center" style="width: 18rem;" >
+        <img [src]="'http://127.0.0.1:3000/getimage/' + star.photo"  alt="">
+        <h5 class="card-header">{{star.name}}</h5>
+        <div class="card-body">
+            <p class="card-text">Category :{{star.category}}</p>
+            <p class="card-text">Price :{{star.price}}</p>
+        </div>
+        <div class="card-footer">
+            <a [routerLink]="['/stars']" class="btn btn-dark"><i class="bi bi-arrow-90deg-left"></i> Retour</a>
+    
+        </div>
+    </div>
+}

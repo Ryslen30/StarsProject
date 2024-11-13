@@ -1,16 +1,28 @@
-<div class="first-container">
-<div class="container bg-dark">
-    <h1>Login
-    </h1>
-    <form action="#">
-        <div class="mb-3 ">
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email-adress" required>
-            <p id="emailHelp" class="form-text">We'll never share your email with anyone else.</p>
-        </div>
-        <div class="mb-3 ">
-            <input type="password" class="form-control" id="password" placeholder="password" required>
-        </div>
-        <button type="submit" class="btn btn-light">Login</button>
-        <a class="forgot-password text-warning" routerLink="/forgotpassword">Forgot Password?</a>
-    </form>
-</div>
+
+<div class="container-fluid p-0">
+    <div class="booking-content">
+      <!-- Left Image Section -->
+      <div class="booking-image"></div>
+  
+      <!-- Right Form Section -->
+      <div class="booking-form d-flex flex-column justify-content-center">
+        <h1 class="text-dark">Sign-in</h1>
+        <form action="#">
+          <div class="mb-3">
+            <input type="email" class="form-control" id="email" placeholder="Email address" required>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="mb-3">
+            <input type="password" class="form-control" id="password" placeholder="Password" required>
+          </div>
+          <button type="submit" class="btn btn-custom btn-info">Sign-in</button>
+          <div class="form-footer">
+            <a routerLink="/forgotpassword" class="text-dark">Forgot Password?</a><br><br>
+            don't have an account?  <a routerLink="/signup" class="text-dark">Sign Up</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+            
