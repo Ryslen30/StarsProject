@@ -5,6 +5,7 @@ import { DatePipe, JsonPipe } from '@angular/common';
 import { DinarPipe } from '../../pipes/dinar.pipe';
 import { StarItemComponent } from '../star-item/star-item.component';
 import { CartService } from '../../services/cart.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-stars-list',
@@ -15,6 +16,7 @@ import { CartService } from '../../services/cart.service';
 })
 export class StarsListComponent implements OnInit {
   private _starService: StarService= inject(StarService);
+
   
   stars! :Star[];
   

@@ -33,12 +33,21 @@
         <input class="form-control me-2 fs-5" placeholder="Search" aria-label="Search" style="width: 400px;">
         <button class="btn btn-outline-light">Search</button>
       </div>
+      @if (userService.isLoggedIn()==false) {
 
-      <!-- Right-aligned items: Login, Signup, and Cart -->
-      <div class="d-flex ms-auto align-items-center gap-4" >
-        <button class="btn btn-outline-info" routerLink="/login" routerLinkActive="active">Sign-in</button>
-        <button class="btn btn-outline-info" routerLink="/cart" routerLinkActive="active"><i class="bi bi-cart"></i></button>
-      </div>
+        <div class="d-flex ms-auto align-items-center gap-4" >
+          <button class="btn btn-outline-info" style="margin-right: 50px;" routerLink="/login" routerLinkActive="active">Sign-in</button>
+        </div>
+      }
+      @else if(userService.isLoggedIn()==true) {
+        <div class="d-flex ms-auto align-items-center gap-4" >
+          <i [routerLink]="['/user/'+ userService.getDataFromToken()._id]" class="bi bi-person fs-2" style="color: white;"></i>
+          <button class="btn btn-outline-info" routerLink="/cart" routerLinkActive="active"><i class="bi bi-cart"></i></button>
+          <button class="btn btn-outline-info" (click)="logOut()" routerLinkActive="active">LogOut</button>
+        </div>
+      }
+
+     
     </div>
   </div>
 </nav>

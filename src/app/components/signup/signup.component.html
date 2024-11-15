@@ -9,20 +9,20 @@
         <h1 class="text-dark">sign-up</h1>
         <form action="#">
             <div class="mb-3 col-12 d-flex me-2">
-              <input type="text" class="form-control" id="firstName" placeholder="First Name" required style="margin-right: 10px;">
-              <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+              <input type="text" class="form-control" id="firstName" placeholder="First Name" [(ngModel)]="user.username" name="firstname" required style="margin-right: 10px;">
+              <input type="text" class="form-control" id="lastName" placeholder="Last Name" [(ngModel)]="user.lastname" name="lastname" required>
             </div>
           <div class="mb-3">
-            <input type="email" class="form-control" id="email" placeholder="Email address" required>
+            <input type="email" class="form-control" id="email" placeholder="Email address" [(ngModel)]="user.email" name="email" required>
           </div>
           <div class="mb-3">
-            <input type="password" class="form-control" id="password" placeholder="Password" required>
+            <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="user.password" name="password" required>
           </div>
           <div class="mb-3">
             <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
           </div>
 
-          <button type="submit" class="btn btn-custom btn-info">sign-up</button>
+          <button type="submit" class="btn btn-custom btn-info" (click)="signUp()">sign-up</button>
           <div class="form-footer">
             <a routerLink="/forgotpassword" class="text-dark">Forgot Password?</a><br><br>
             Already have an account?  <a routerLink="/login" class="text-dark">Sign-in</a>

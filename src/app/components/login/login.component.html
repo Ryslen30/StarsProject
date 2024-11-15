@@ -7,15 +7,16 @@
       <!-- Right Form Section -->
       <div class="booking-form d-flex flex-column justify-content-center">
         <h1 class="text-dark">Sign-in</h1>
-        <form action="#">
+        <form>
           <div class="mb-3">
-            <input type="email" class="form-control" id="email" placeholder="Email address" required>
+            <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" placeholder="Email address" required>
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="mb-3">
-            <input type="password" class="form-control" id="password" placeholder="Password" required>
+            <input type="password" class="form-control" id="password"  [(ngModel)]="user.password" name="password" placeholder="Password" required>
           </div>
-          <button type="submit" class="btn btn-custom btn-info">Sign-in</button>
+          <button  class="btn btn-custom btn-info" (click)="login()">Sign-in</button>
+          {{error}}
           <div class="form-footer">
             <a routerLink="/forgotpassword" class="text-dark">Forgot Password?</a><br><br>
             don't have an account?  <a routerLink="/signup" class="text-dark">Sign Up</a>

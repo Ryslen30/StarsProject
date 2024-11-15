@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { CartComponent } from './components/cart/cart.component';
 import { StarSelectedComponent } from './components/star-selected/star-selected.component';
+import { UserComponent } from './components/user/user.component';
 export const routes: Routes = [
   {path :'home', component: HomeComponent},
   { path: 'about', component: AboutComponent }, // Route for About
@@ -21,7 +22,9 @@ export const routes: Routes = [
   {path:'signup',component: SignupComponent}, // Route for signup
   {path:'cart',component: CartComponent}, // Route for cart
   {path:'stars/:id',component: StarSelectedComponent}, // Route for star selection
-  // {path:'forgotpassword',component: ForgotPasswordComponent}, // Route for forgot passwordng
+  {path:'user/:id' , component: UserComponent}, // Route for user
+
+  {path:'forgotpassword',component: ForgotpasswordComponent}, // Route for forgot passwordng
   { path: '', component: HomeComponent },  
   {path :'**', component: ErrorComponent},
   

@@ -97,4 +97,6 @@ p {
   transition: all .3s ease;    
 }
 
-
+#heart:hover{
+  cursor: pointer;
+}

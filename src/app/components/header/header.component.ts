@@ -1,10 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { ContactComponent } from '../contact/contact.component';
-import { RouterLink,RouterLinkActive  } from '@angular/router';
+import { Router, RouterLink,RouterLinkActive  } from '@angular/router';
 import { CartComponent } from '../cart/cart.component';
-import { CartService } from '../../../../comp/src/app/services/cart.service';
-import { Star } from '../../Classes/StarClass/star';
 import { DinarPipe } from '../../pipes/dinar.pipe';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -14,5 +13,17 @@ import { DinarPipe } from '../../pipes/dinar.pipe';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+   readonly userService: UserService = inject(UserService);
+   private router : Router = inject(Router);
+ 
+
+
+  logOut(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/home']);
+
+
+  }
+
  
 }

@@ -1,10 +1,11 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Star } from '../../Classes/StarClass/star';
 import { DinarPipe } from '../../pipes/dinar.pipe';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { StarService } from '../../services/star.service';
 import { NgClass } from '@angular/common';
+import { UserService } from '../../services/user.service';
 
 
 @Component({
@@ -19,6 +20,9 @@ export class StarItemComponent {
   @Output() updateEvent = new EventEmitter<string>();
   private cartService : CartService = inject(CartService);
   private starService : StarService = inject(StarService);
+  readonly userService: UserService = inject(UserService);
+  readonly router : Router = inject(Router);
+
    i: number = 0;
   onUpdate(s: Star) {
      if(this.i==0){
@@ -39,10 +43,12 @@ export class StarItemComponent {
     }
   }
   
+
   onClick(){
-    console.log(this.star);
+     console.log(this.star);
     this.cartService.addToCart(this.star);
     localStorage.setItem("star", JSON.stringify(this.star));
+
   }
 
 
