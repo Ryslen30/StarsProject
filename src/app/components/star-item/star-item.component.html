@@ -1,11 +1,15 @@
 <div class="container me-2 " > 
   <div class="wrapper mt-2">
-     <img class="banner-image" [src]="'http://127.0.0.1:3000/getimage/' " alt="Star image" >
+    <img class="banner-image" [src]="'http://127.0.0.1:3000/getimage/'+ star.photo " alt="Star image" >
     <h1>{{star.name}}</h1>
     <p>{{star.price | dinar}}</p>
   </div>
-  
-<i class="fs-4 " id="heart" style="color: red;" (click)="onUpdate(star)" [ngClass]="{'bi bi-heart': i === 0, 'bi bi-heart-fill': i > 0}"></i>{{star.likes}} 
+  <button (click)="onUpdate(star)" class="btn btn-danger">
+    <i [ngClass]="{'bi bi-heart': i === 0, 'bi bi-heart-fill': i > 0}"></i>
+    {{ i === 0 ? 'Like' : 'Unlike' }}
+  </button>
+<!-- <i class="fs-4 " id="heart" style="color: red;" (click)="onUpdate(star)" [ngClass]="{'bi bi-heart': i === 0, 'bi bi-heart-fill': i > 0}"></i> -->
+{{star.likes}} 
   <div class="button-wrapper">
     <button class="btn outline" [routerLink]="['/stars', star._id]">Details</button>
     @if(userService.isLoggedIn()==true){

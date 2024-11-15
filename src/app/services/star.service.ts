@@ -21,7 +21,7 @@ export class StarService {
     return this.http.put<Star>(this.URL+'StarUpdate/' + id, s );
 
   }
-  
+
   
 
   constructor() { }
