@@ -31,8 +31,9 @@ export class StarItemComponent {
       // If the star was liked (stored in localStorage), set the like state accordingly
       this.i = 1;
     } else {
-      // Otherwise, check the star's likes from the backend (initial state)
       this.i = 0;
+      // Decrement the likes of the star if it was not liked
+      this.star.likes -= 1;
     }
   }
 
