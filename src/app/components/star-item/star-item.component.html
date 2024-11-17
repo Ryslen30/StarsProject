@@ -1,22 +1,22 @@
-<div class="container me-2" > 
-  <div class="wrapper mt-2">
+<div class="container m-4"> 
      <img class="banner-image" [src]="'http://127.0.0.1:3000/getimage/'+ star.photo " alt="Star image" >
-    <h1>{{star.name}}</h1>
+    <!-- <h1>{{star.name}}</h1> -->
     <p>{{star.price | dinar}}</p>
-  </div>
-  
-<i class="fs-4 " id="heart" style="color: red;" (click)="onUpdate(star)" [ngClass]="{'bi bi-heart': i === 0, 'bi bi-heart-fill': i > 0}"></i>{{star.likes}} 
-  <div class="button-wrapper">
+    @if(userService.isLoggedIn()==true){
+    <div class="d-flex" >
+      <i (click)="onUpdate(star)" class="fs-5" style="color: rgb(58, 28, 189); cursor: pointer;" [ngClass]="{'bi bi-heart': i === 0, 'bi bi-heart-fill': i > 0}"></i>
+     
+      <p class="p-1"> {{star.likes}} Likes</p>
+    </div>
+  }  <div class="button-wrapper">
     <button class="btn outline" [routerLink]="['/stars', star._id]">Details</button>
     @if(userService.isLoggedIn()==true){
-
+      
       <button class="btn fill" (click)="onClick()">Add to Cart</button>
-   
-
-
     }
     @else{
       <button class="btn fill" [routerLink]="['/login']" >Buy Now</button>
     }
   </div>
 </div>
+

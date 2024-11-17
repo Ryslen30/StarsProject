@@ -1,14 +1,32 @@
-@if (star) {
-    <div class="card text-center" style="width: 18rem;" >
-        <img [src]="'http://127.0.0.1:3000/getimage/' + star.photo"  alt="">
-        <h5 class="card-header">{{star.name}}</h5>
-        <div class="card-body">
-            <p class="card-text">Category :{{star.category}}</p>
-            <p class="card-text">Price :{{star.price}}</p>
+@if(star){
+    <div class="container">
+        <div class="image">
+            <img [src]="'http://127.0.0.1:3000/getimage/' + star.photo" alt="picture not available" height="650px" width="453px">
         </div>
-        <div class="card-footer">
-            <a [routerLink]="['/stars']" class="btn btn-dark"><i class="bi bi-arrow-90deg-left"></i> Retour</a>
+        <div class="text">
+            <h1 class="text-center text-bold">{{star.price|currency:'USD'}}</h1>
+            <p>{{star.name|uppercase}}</p>
+            <p><strong>Category: </strong>{{star.category}}</p>
+            <p>{{star.description}}</p>
+            <button (click)="onClick()">ADD to cart</button>
+            <!-- <button (click)="onClick()">ADD A comment</button> -->
+            <input type="text" name="" id="" placeholder="write your comment here" [(ngModel)]="commentaire.message" >
+            <input type="text" name="" id="" placeholder="write your name here" [(ngModel)]="commentaire.username">
+            <button (click)="onAdd()" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">ADD A comment</button>
+            <button (click)="Back()" class="btn btn-dark"><i class="bi bi-arrow-90deg-left"></i> Retour</button>
+            
+            <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasBottomLabel">Comments</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body small">
+                {{star.comments}}
+  </div>
+</div>
+            
     
         </div>
     </div>
-}
+    }
+    
