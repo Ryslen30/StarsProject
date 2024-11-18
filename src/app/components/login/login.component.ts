@@ -11,6 +11,7 @@ import { UserService } from '../../services/user.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  visible: boolean = false;
   private userService: UserService= inject(UserService);
   private readonly router : Router = inject(Router);
   user={
@@ -31,8 +32,9 @@ export class LoginComponent {
     }
     
   )
-  }
 
+  }
+  
 
 
 }

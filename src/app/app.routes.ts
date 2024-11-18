@@ -12,6 +12,7 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
 import { CartComponent } from './components/cart/cart.component';
 import { StarSelectedComponent } from './components/star-selected/star-selected.component';
 import { UserComponent } from './components/user/user.component';
+import { ViewStarsComponent } from './components/view-stars/view-stars.component';
 export const routes: Routes = [
   {path :'home', component: HomeComponent},
   { path: 'about', component: AboutComponent }, // Route for About
@@ -23,7 +24,7 @@ export const routes: Routes = [
   {path:'cart',component: CartComponent}, // Route for cart
   {path:'stars/:id',component: StarSelectedComponent}, // Route for star selection
   {path:'user/:id' , component: UserComponent}, // Route for user
-
+{path:'viewstars',component: ViewStarsComponent}, // Route for
   {path:'forgotpassword',component: ForgotpasswordComponent}, // Route for forgot passwordng
   { path: '', component: HomeComponent },  
   {path :'**', component: ErrorComponent},
