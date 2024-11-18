@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { User } from '../Classes/UserClass/user';
-import { Observable, retry } from 'rxjs';
+import { Observable, } from 'rxjs';
 
 
 @Injectable({

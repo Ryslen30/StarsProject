@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Star } from '../Classes/StarClass/star';
 import { Observable } from 'rxjs';
-import { Comment } from '../Classes/CommentClass/comment';
+
+import { Commentaire } from '../Classes/CommentClass/commentaire';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +23,7 @@ export class StarService {
     return this.http.put<Star>(this.URL+'StarUpdate/' + id, s );
 
   }
-  addComment(id:any, comment : Comment): Observable<Star>{
+  addComment(id:any, comment : Commentaire): Observable<Star>{
     return this.http.post<Star>(this.URL+'addCommentToStar/' + id , comment)
   }
   

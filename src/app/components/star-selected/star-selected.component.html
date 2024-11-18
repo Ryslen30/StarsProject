@@ -5,28 +5,30 @@
         </div>
         <div class="text">
             <h1 class="text-center text-bold">{{star.price|currency:'USD'}}</h1>
-            <p>{{star.name|uppercase}}</p>
+            <p class="star-name">{{star.name|uppercase}}</p>
             <p><strong>Category: </strong>{{star.category}}</p>
-            <p>{{star.description}}</p>
-            <button (click)="onClick()">ADD to cart</button>
+            <p>{{star.description}}</p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero labore nam corporis voluptatibus reiciendis. Reprehenderit quam, saepe, at tempore possimus consectetur ducimus rem iusto excepturi, fuga consequatur rerum quod similique? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod, harum. Magnam, facere odit soluta, culpa at ipsam, laboriosam beatae itaque illo voluptatem incidunt doloribus qui consectetur? Praesentium eos dolorum possimus?
+            <button (click)="onClick()" class="btn btn-primary">ADD to cart</button>
             <!-- <button (click)="onClick()">ADD A comment</button> -->
-            <input type="text" name="" id="" placeholder="write your comment here" [(ngModel)]="commentaire.message" >
-            <input type="text" name="" id="" placeholder="write your name here" [(ngModel)]="commentaire.username">
-            <button (click)="onAdd()" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">ADD A comment</button>
+            
             <button (click)="Back()" class="btn btn-dark"><i class="bi bi-arrow-90deg-left"></i> Retour</button>
             
-            <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasBottomLabel">Comments</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body small">
-                {{star.comments}}
-  </div>
-</div>
             
-    
+            
+          </div>
         </div>
-    </div>
+        <div class="comments-section">
+          <div class="d-flex comment-input m-2">
+            <input type="text" id="com" placeholder="Write your comment here" [(ngModel)]="commentaire.message" class="comment-input-field">
+            <button (click)="onAdd()" class="btn btn-primary add-comment-btn">ADD A comment</button>
+          </div>
+          @for(comment of lesCom ; track $index){
+            <div class="comment">
+              <p>{{comment.username}} :
+              {{comment.message}}</p>
+            </div>
+            
+          }
+      </div>
     }
     

@@ -1,46 +1,139 @@
+/* General container */
 .container {
     display: flex;
-}
-.image{
-    margin: 1%;
-}
-.text{
-
+    flex-wrap: wrap;
+    margin: 20px;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url('../../../../public/ressource/theone.png') no-repeat center center fixed;
+    background-size: cover;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+  }
+  
+  .image {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  .text {
+    flex: 2;
+    padding: 20px;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
-    margin-left:20%;
-    font-family: 'Roboto';
-}
-button{
-    margin-top: 10%;
-    padding: 5%;
+    justify-content: flex-start;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  .text-center {
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .star-name {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: #FFD700; /* Starry gold color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin-top: 15px;
     border-radius: 5px;
-    font-size: 18px;
     cursor: pointer;
-    height: 48px;
-    width: 382px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-input{
-    margin-top: 10%;
-    padding: 5%;
-    border-radius: 5px;
-    font-size: 18px;
-    height: 48px;
-    width: 382px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-button:hover{
-    background-color: black;
+    transition: background-color 0.3s ease-in-out;
+    font-weight: bold;
+  }
+  
+  button:hover {
+    background-color: #FFD700;
+    color: black;
+  }
+  
+  button.btn-dark {
+    background-color: #333;
     color: white;
-}
+  }
+  
+  .comments-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+    margin: 20px auto;
+    max-width: 800px;
+  }
+  
+  .comment {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  }
+  
+  .comment-input {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+    caret-color: red;
+  }
 
+  
+  .comment-input-field {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: rgb(254, 252, 252);
+    color: #000000;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+   
+  }
+  
+  .add-comment-btn {
+    max-width: 200px;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 5px;
+    background: #FFD700;
+    color: #333;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .image {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .text {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .comments-section {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .comment-input {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
