@@ -1,7 +1,8 @@
-@if(star){
-    <div class="container">
-        <div class="image">
-            <img [src]="'http://127.0.0.1:3000/getimage/' + star.photo" alt="picture not available" height="650px" width="453px">
+<div class="container">
+    <div class="row">
+        <!-- Image section (left) -->
+        <div class="col-md-4 col-12 image">
+            <img [src]="'http://127.0.0.1:3000/getimage/' + star.photo" alt="picture not available" class="img-fluid">
         </div>
         <div class="text">
             <h1 class="text-center text-bold">{{star.price|currency:'USD'}}</h1>
