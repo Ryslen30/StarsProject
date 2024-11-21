@@ -28,11 +28,7 @@
         </li>
       </ul>
 
-      <!-- Centered search bar -->
-      <div class="d-flex mx-auto">
-        <input class="form-control me-2 fs-5" placeholder="Search" aria-label="Search" style="width: 400px;">
-        <button class="btn btn-outline-light">Search</button>
-      </div>
+
       @if (userService.isLoggedIn()==false) {
 
         <div class="d-flex ms-auto align-items-center gap-4" >

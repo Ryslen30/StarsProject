@@ -26,7 +26,10 @@ export class StarService {
   addComment(id:any, comment : Commentaire): Observable<Star>{
     return this.http.post<Star>(this.URL+'addCommentToStar/' + id , comment)
   }
-  
+ 
+  deleteComment(id:any , star : Star) : Observable<Comment>{
+    return this.http.delete<Comment>(this.URL + star._id+ '/deleteComment/' + id)
+  }
 
   constructor() { }
 }

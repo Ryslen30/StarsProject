@@ -7,7 +7,7 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [DinarPipe, DatePipe, CurrencyPipe],
+  imports: [ DatePipe, CurrencyPipe],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
@@ -19,13 +19,23 @@ export class CartComponent {
 
   
   
-  deleteFromCart(){
 
-  }
   ngOnInit(): void {
     this.stars = this.cartService.getCart();
    
     
     
+  }
+  public deleteFromCart(indice : number){
+    let updatedStars = this.stars.splice(indice , 1);
+   let cart = JSON.parse(localStorage.getItem("cart") || '[]');
+   console.log(cart);
+   cart.splice(indice ,1);
+   localStorage.setItem("cart" , JSON.stringify(cart));
+   console.log(cart);
+
+    
+
+
   }
 }

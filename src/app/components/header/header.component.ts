@@ -20,6 +20,7 @@ export class HeaderComponent {
 
   logOut(){
     localStorage.removeItem('token');
+    localStorage.removeItem('cart');
     this.router.navigate(['/home']);
 
 

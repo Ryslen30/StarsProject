@@ -1,6 +1,6 @@
-<div class="container m-4"> 
+<div class="container " style="margin: 30px;"> 
      <img class="banner-image" [src]="'http://127.0.0.1:3000/getimage/'+ star.photo " alt="Star image" >
-    <!-- <h1>{{star.name}}</h1> -->
+    <h1>{{star.name}}</h1>
     <p>{{star.price | dinar}}</p>
     @if(userService.isLoggedIn()==true){
     <div class="d-flex" >
@@ -19,4 +19,32 @@
     }
   </div>
 </div>
+<!-- <div class="container bootdey">
+  
+    <div class="col-md-9">
+        
 
+        <div class="row product-list">
+            <div class="col-md-4 " style="width: 400px;" >
+                <section class="panel">
+                    <div class="pro-img-box">
+                        <img  [src]="'http://127.0.0.1:3000/getimage/' + star.photo"  alt="" width="220px" height="250px" />
+                        <a href="#" class="adtocart">
+                            <i class="fa fa-shopping-cart"></i>
+                        </a>
+                    </div>
+
+                    <div class="panel-body text-center">
+                        <h4>
+                            <a href="#" class="pro-title">
+                                Leopard Shirt Dress
+                            </a>
+                        </h4>
+                        <p class="price">$300.00</p>
+                    </div>
+                </section>
+            </div>
+         
+        </div>
+    </div>
+</div> -->

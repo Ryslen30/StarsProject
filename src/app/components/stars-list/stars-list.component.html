@@ -1,6 +1,39 @@
 
-<div class="background d-flex flex-wrap" id="bg" style="display: flex; justify-content: space-evenly;" >
-   @for ( star of stars; track $index) {
+
+<div class="d-flex justify-content-center m-3">
+  
+  <input class="form-control me-2 fs-5" (input)="search($event)" placeholder="Search By Star Name" aria-label="Search" style="width: 400px;">
+  <button class="btn btn-outline-dark">Search</button>
+</div>
+<div class="background d-flex flex-wrap" id="bg" style="display: flex;">
+        <!-- Centered search bar -->
+   <div class="filter-container">
+      <h3>Filter</h3>
+      <form >
+        <label for="brand">Category</label>
+        <select id="brand"  [(ngModel)]="category" [ngModelOptions]="{standalone: true}">
+          <option value="all">Default</option>
+          <option value="duonova">duonova</option>
+          <option value="nebula">nebula</option>
+        </select>
+    
+        <label for="color">Sate</label>
+        <select id="color"  [(ngModel)]="state" [ngModelOptions]="{standalone: true}" >
+          <option value="all">Default</option>
+          <option value="false">Dead</option>
+          <option value="true">Alive</option>
+          
+        </select>
+    
+      
+    
+        <button type="submit" (click)="filter()">Filter</button>
+      </form>
+    </div>
+    
+ 
+  
+   @for ( star of filteredStars; track $index) {
       <app-star-item [star]="star" (updateEvent)="onUpdate($event)" ></app-star-item>
    }
 </div>

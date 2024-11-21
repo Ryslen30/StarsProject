@@ -97,6 +97,7 @@ p {
   transition: transform 0.2s;
 }
 
+
 /* Adjust spacing for better card balance */
 .container > *:not(:last-child) {
   margin-bottom: 12px;

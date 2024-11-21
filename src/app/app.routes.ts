@@ -25,10 +25,10 @@ export const routes: Routes = [
   {path:'cart',component: CartComponent}, // Route for cart
   {path:'stars/:id',component: StarSelectedComponent}, // Route for star selection
   {path:'user/:id' , component: UserComponent}, // Route for user
-{path:'viewstars',component: ViewStarsComponent}, // Route for
+  {path:'viewstars',component: ViewStarsComponent}, // Route for
   {path:'change/:id', component: ChangepasswordComponent}, // Route for change
   {path:'forgotpassword',component: ForgotpasswordComponent}, // Route for forgot passwordng
-  { path: '', component: HomeComponent },  
+  {path: '', component: HomeComponent },  
   {path :'**', component: ErrorComponent},
   
 

@@ -20,27 +20,34 @@ import { UserService } from '../../services/user.service';
 export class StarSelectedComponent implements OnInit {
 
   private starService: StarService = inject(StarService);
+
   activatedRoute: ActivatedRoute = inject(ActivatedRoute);
+
   private cartService: CartService = inject(CartService);
+
   router: Router = inject(Router);
+
   private commentService: CommentService = inject(CommentService);
+
   userService: UserService = inject(UserService);
 
 
   star!: Star;
   id !: string;
-  lesCom : Commentaire[]= [];
+  lesCom: Commentaire[] = [];
   commentaire: Commentaire = { username: '', message: '' };
 
   ngOnInit(): void {
+    
+    
     this.id = this.activatedRoute.snapshot.params['id'];
 
-    let tokendata = this.userService.getDataFromToken() ;
+    let tokendata = this.userService.getDataFromToken();
     console.log(tokendata);
-    
-    this.commentaire.username= tokendata ? this.userService.getDataFromToken().name : 'Guest' ;
+
+    this.commentaire.username = tokendata ? this.userService.getDataFromToken().name : 'Guest';
     console.log("username :" + this.commentaire.username);
-    
+
     this.starService.getStarsById(this.id)
       .subscribe((data) => {
         this.star = data;
@@ -52,23 +59,18 @@ export class StarSelectedComponent implements OnInit {
                 (res) => {
                   this.lesCom.unshift(res);
                   console.log(this.lesCom);
-                  
+
                   console.log(res)
                 },
                 (err) => {
                   console.log(err);
-    
+
                 }
               )
           }
           )
         }
       });
-
-
-
-
-
   }
   onClick() {
     console.log(this.star);
@@ -80,11 +82,7 @@ export class StarSelectedComponent implements OnInit {
     this.starService.addComment(this.id, this.commentaire).subscribe(
       (updatedStar) => {
         console.log("Added comment successfully");
-  
-        
         const latestCommentId = updatedStar.comments[updatedStar.comments.length - 1];
-  
-      
         this.commentService.getCommentById(latestCommentId).subscribe(
           (latestComment) => {
             this.lesCom.unshift(latestComment); // Add the latest comment to the top of the array
@@ -93,17 +91,34 @@ export class StarSelectedComponent implements OnInit {
             console.log("Error fetching latest comment:", error);
           }
         );
-        this.commentaire = { username: '', message: '' };
+        this.commentaire.message = '';
       },
       (error) => {
         console.log("Error adding comment:", error);
       }
     );
   }
-  
-  
+
+
   Back() {
     this.router.navigate(['/stars']);
+  }
+  deleteComment(indice: number) {
+    let comment  = JSON.parse(JSON.stringify(this.lesCom[indice]));
+    console.log(comment._id);
+    this.starService.deleteComment(comment._id , this.star)
+    .subscribe(
+      ()=>{
+        console.log("comment deleted")
+        this.lesCom.splice(indice , 1);
+        console.log("commentaires :" +JSON.stringify(this.lesCom));
+        
+      },
+      (err)=>{
+        console.log(err)
+      }
+    )
+    console.log("commentaires :" +JSON.stringify(this.lesCom));
   }
 
 }

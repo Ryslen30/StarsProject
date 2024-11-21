@@ -2,6 +2,7 @@
 /* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
+  "incremental": true,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "strict": true,
@@ -30,4 +31,5 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   }
+  
 }
