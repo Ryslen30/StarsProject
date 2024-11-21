@@ -1,0 +1,34 @@
+.background{
+    height:250vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../../../../public/ressource/john-towner-7rlIPXTR6OI-unsplash.jpg');
+    background-size:cover;
+    background-position: center;
+    color: white;
+   
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 250px;
+    padding-bottom: 100px;
+}
+h1{
+    font-family: 'Arial', sans-serif;
+}
+.input {
+    border: 2px solid transparent;
+    width: 15em;
+    height: 2.5em;
+    padding-left: 0.8em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    transition: all 0.5s;
+  }
+  
+  .input:hover,
+  .input:focus {
+    border: 2px solid #4A9DEC;
+    box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+    background-color: white;
+  }
+  

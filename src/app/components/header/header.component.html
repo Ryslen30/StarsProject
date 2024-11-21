@@ -1,53 +1,52 @@
-<div style="text-align: center; background-color:burlywood;"><a class="nav-link fs-6" routerLink="/stars"><i class="bi bi-stars"></i>Explore Stars</a></div>
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark" data-bs-theme="dark">
-  <div class="container-fluid">
-    <!-- Navbar brand -->
-    <a class="navbar-brand m-3 fs-4" routerLink="/home" routerLinkActive="active">Starlik</a>
 
-    <!-- Toggle button for small screens -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Collapsible navbar content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <!-- Left-aligned links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link fs-5" aria-current="page" routerLink="/home" routerLinkActive="active">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link fs-5" routerLink="/about" routerLinkActive="active">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link fs-5" routerLink="/contact" routerLinkActive="active">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link fs-5" routerLink="/viewstars" routerLinkActive="active">View stars</a>
-        </li>
-      </ul>
-
-      <!-- Centered search bar -->
-      <div class="d-flex mx-auto">
-        <input class="form-control me-2 fs-5" placeholder="Search" aria-label="Search" style="width: 400px;">
-        <button class="btn btn-outline-light">Search</button>
+<div class="background">
+  <div class="site-mobile-menu site-navbar-target d-lg-none">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close ">
+        <span class="icon-close2 js-menu-toggle">&#x2715;</span>
       </div>
-      @if (userService.isLoggedIn()==false) {
-
-        <div class="d-flex ms-auto align-items-center gap-4" >
-          <button class="btn btn-outline-info" style="margin-right: 50px;" routerLink="/login" routerLinkActive="active">Sign-in</button>
-        </div>
-      }
-      @else if(userService.isLoggedIn()==true) {
-        <div class="d-flex ms-auto align-items-center gap-4" >
-          <i [routerLink]="['/user/'+ userService.getDataFromToken()._id]" class="bi bi-person fs-2" style="color: white;"></i>
-          <button class="btn btn-outline-info" routerLink="/cart" routerLinkActive="active"><i class="bi bi-cart"></i></button>
-          <button class="btn btn-outline-info" (click)="logOut()" routerLinkActive="active">LogOut</button>
-        </div>
-      }
-
-     
+    </div>
+    <div class="site-mobile-menu-body">
+      <ul class="site-menu">
+        <li><a routerLink="/home" class="nav-link">Home</a></li>
+        <li><a routerLink="/about" class="nav-link">About</a></li>
+        <li><a routerLink="/viewstars" class="nav-link">ViewStars</a></li>
+        <li><a routerLink="/contact" class="nav-link">Contact</a></li>
+      </ul>
     </div>
   </div>
-</nav>
+
+  <header class="site-navbar site-navbar-target"  role="banner">
+    <div class="container">
+      <div class="row align-items-center position-relative">
+        <div class="col-3">
+          <div class="site-logo">
+            <a class="font-weight-bold text-white" routerLink="/home" style="font-size: larger;">STARLIK</a>
+          </div>
+        </div>
+        <div class="col-9 d-flex justify-content-between" >
+          <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+            <ul class="site-menu main-menu js-clone-nav " style="margin-left: 300px;">
+              <li><a routerLink="/home" class="nav-link" routerLinkActive="active">Home</a></li>
+              <li><a routerLink="/about" class="nav-link" routerLinkActive="active">About</a></li>
+              <li><a routerLink="/viewstars" class="nav-link" routerLinkActive="active">ViewStars</a></li>
+              <li><a routerLink="/contact" class="nav-link" routerLinkActive="active">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="d-flex ms-auto  align-items-center gap-4">
+            @if (userService.isLoggedIn() == false) {
+              <button class="btn btn-outline-info"  routerLink="/login" routerLinkActive="active">Sign-in</button>
+            }
+            @else if (userService.isLoggedIn() == true) {
+              <i [routerLink]="['/user/'+ userService.getDataFromToken()._id]" class="bi bi-person fs-2" style="color: white;"></i>
+              <button class="btn btn-outline-info" routerLink="/cart" routerLinkActive="active"><i class="bi bi-cart"></i></button>
+              <button class="btn btn-outline-info" (click)="logOut()" routerLinkActive="active">LogOut</button>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
