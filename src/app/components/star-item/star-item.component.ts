@@ -4,13 +4,13 @@ import { DinarPipe } from '../../pipes/dinar.pipe';
 import { Router, RouterLink } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { StarService } from '../../services/star.service';
-import { NgClass } from '@angular/common';
+import { NgClass, NgStyle } from '@angular/common';
 import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-star-item',
   standalone: true,
-  imports: [DinarPipe, RouterLink, NgClass],
+  imports: [DinarPipe, RouterLink, NgClass,],
   templateUrl: './star-item.component.html',
   styleUrl: './star-item.component.css'
 })
