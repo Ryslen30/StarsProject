@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Star } from '../../Classes/StarClass/star';
 import { StarService } from '../../services/star.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CurrencyPipe, UpperCasePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe, UpperCasePipe } from '@angular/common';
 import { CartService } from '../../services/cart.service';
 import { FormsModule } from '@angular/forms';
 import { CommentService } from '../../services/comment.service';
@@ -13,7 +13,7 @@ import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-star-selected',
   standalone: true,
-  imports: [CurrencyPipe, UpperCasePipe, FormsModule],
+  imports: [CurrencyPipe, UpperCasePipe, FormsModule, DatePipe],
   templateUrl: './star-selected.component.html',
   styleUrl: './star-selected.component.css'
 })

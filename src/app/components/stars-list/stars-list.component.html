@@ -1,39 +1,40 @@
 
 
-<div class="d-flex justify-content-center m-3">
+<div class="background d-flex flex-wrap" id="bg" >
+
+    <div class="container-fluid text-center py-5 " style="color: white;">
+      <h1 class="display-4 mb-3" style="font-family: 'Roboto', sans-serif; font-weight: 700; color: #cce7ff;">Welcome to Starlik</h1>
+      <p class="fs-5 mb-4" style="font-family: 'Roboto', sans-serif; color: #a2c2f2;">"name a star,shine forever."</p>  
+      <div class="d-flex justify-content-center gap-3 mb-4">
+        <input class="form-control fs-5" type="text" class="input" (input)="search($event)" placeholder="Search for stars..." aria-label="Search" style="max-width: 300px; background-color: #fff; border: 1px solid #fff; color: black;">
+    
   
-  <input class="form-control me-2 fs-5" (input)="search($event)" placeholder="Search By Star Name" aria-label="Search" style="width: 400px;">
-  <button class="btn btn-outline-dark">Search</button>
-</div>
-<div class="background d-flex flex-wrap" id="bg" style="display: flex;">
-        <!-- Centered search bar -->
-   <div class="filter-container">
-      <h3>Filter</h3>
-      <form >
-        <label for="brand">Category</label>
-        <select id="brand"  [(ngModel)]="category" [ngModelOptions]="{standalone: true}">
+      <div class="d-flex justify-content-center gap-3">
+        <label for="price-category"  style="color: #a2c2f2;"> Category:</label>
+        <select id="price-category" class="form-select fs-5"  [(ngModel)]="category" [ngModelOptions]="{standalone: true}" style="background-color: #1a2d5c; color: white; border: 1px solid #fff;">
           <option value="all">Default</option>
           <option value="duonova">duonova</option>
           <option value="nebula">nebula</option>
         </select>
-    
-        <label for="color">Sate</label>
-        <select id="color"  [(ngModel)]="state" [ngModelOptions]="{standalone: true}" >
+        <label for="price-state"  style="color: #a2c2f2;"> Status:</label>
+        <select id="price-state" class="form-select fs-5"  [(ngModel)]="state" [ngModelOptions]="{standalone: true}" style=" background-color: #1a2d5c; color: white; border: 1px solid #fff;">
           <option value="all">Default</option>
           <option value="false">Dead</option>
           <option value="true">Alive</option>
-          
         </select>
-    
-      
-    
-        <button type="submit" (click)="filter()">Filter</button>
-      </form>
+        <button  class="btn btn-outline-info"  type="submit" (click)="filter()">Filter</button>
+       
+      </div>
+    </div>
+
     </div>
     
  
   
-   @for ( star of filteredStars; track $index) {
-      <app-star-item [star]="star" (updateEvent)="onUpdate($event)" ></app-star-item>
-   }
+
+   <div class="background d-flex flex-wrap" id="bg" style=" justify-content: space-evenly;" >
+    @for ( star of filteredStars; track $index) {
+       <app-star-item [star]="star" (updateEvent)="onUpdate($event)" ></app-star-item>
+    }
+ </div>
 </div>
