@@ -103,7 +103,7 @@ export class StarSelectedComponent implements OnInit {
   
   
   Back() {
-    this.router.navigate(['/stars']);
+    this.router.navigate(['/home']);
   }
 
 }

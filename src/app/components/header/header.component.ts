@@ -14,6 +14,7 @@ import { NgClass } from '@angular/common';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+
    readonly userService: UserService = inject(UserService);
    private router : Router = inject(Router);
  
@@ -27,6 +28,11 @@ export class HeaderComponent {
   }
   isActive(route: string): boolean {
     return this.router.url === route;
+  }
+  isMobileMenuOpen = false;
+
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 
 
