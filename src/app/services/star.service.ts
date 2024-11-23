@@ -12,6 +12,10 @@ export class StarService {
 
   private readonly http : HttpClient = inject(HttpClient);
 
+  createStar(s : any): Observable<Star>{
+    return this.http.post<Star>(this.URL + 'create' , s)
+  }
+
   getStars(): Observable<Star[]> {
     return this.http.get<Star[]>(this.URL+'getStars');
   }
@@ -19,14 +23,22 @@ export class StarService {
     return this.http.get<Star>(this.URL+'getStar/' +id);
 
   }
-  updateStar(id:string, s : Star):Observable<Star>{
+  updateStar(id:string, s : any):Observable<Star>{
     return this.http.put<Star>(this.URL+'StarUpdate/' + id, s );
 
+  }
+
+
+  deleteStar(id:string): Observable<Star>{
+    return this.http.delete<Star>(this.URL+'deleteStar/' + id);
   }
   addComment(id:any, comment : Commentaire): Observable<Star>{
     return this.http.post<Star>(this.URL+'addCommentToStar/' + id , comment)
   }
-  
+ 
+  deleteComment(id:any , star : Star) : Observable<Comment>{
+    return this.http.delete<Comment>(this.URL + star._id+ '/deleteComment/' + id)
+  }
 
-  constructor() { }
+  
 }

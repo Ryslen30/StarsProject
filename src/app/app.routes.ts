@@ -14,6 +14,8 @@ import { StarSelectedComponent } from './components/star-selected/star-selected.
 import { UserComponent } from './components/user/user.component';
 import { ViewStarsComponent } from './components/view-stars/view-stars.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+import { EditComponent } from './components/edit/edit.component';
+import { AddComponent } from './components/add/add.component';
 export const routes: Routes = [
   {path :'home', component: HomeComponent},
   { path: 'about', component: AboutComponent }, // Route for About
@@ -25,10 +27,14 @@ export const routes: Routes = [
   {path:'cart',component: CartComponent}, // Route for cart
   {path:'stars/:id',component: StarSelectedComponent}, // Route for star selection
   {path:'user/:id' , component: UserComponent}, // Route for user
-{path:'viewstars',component: ViewStarsComponent}, // Route for
+  {path:'viewstars',component: ViewStarsComponent}, // Route for
   {path:'change/:id', component: ChangepasswordComponent}, // Route for change
   {path:'forgotpassword',component: ForgotpasswordComponent}, // Route for forgot passwordng
-  { path: '', component: HomeComponent },  
+  {path: 'edit/:id', component: EditComponent },
+  {path: 'add', component: AddComponent },
+  {path: 'admin', component: AdminComponent},
+
+  {path: '', component: HomeComponent },  
   {path :'**', component: ErrorComponent},
   
 

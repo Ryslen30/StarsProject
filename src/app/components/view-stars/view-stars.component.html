@@ -2,14 +2,23 @@
   <div class="before">
 
   </div>
+  @if (isLoading) {
   <div class="card">
     <div class="row g-0">
       <!-- Image Section -->
-      <div class="col-md-4">
-        <div class="card-img-wrapper">
-          <img class="card-img" [src]="apod.url" alt="Astronomy Picture">
-        </div>
-      </div>
+      
+         <div class="col-md-4">
+          
+           <div class="card-img-wrapper">
+            
+             <img class="card-img" [src]="apod.url" alt="Astronomy Picture">
+           
+           
+           </div>
+         
+         </div>
+    
+
   
       <!-- Text Section -->
       <div class="col-md-8 mt-4">
@@ -24,5 +33,17 @@
         </div>
       </div>
     </div>
+  
+ 
   </div>
+}@else {
+
+  <app-loader class="d-flex justify-content-center "style="margin-top: 150px; margin-bottom: 150px;"> </app-loader>
+ 
+}
+
+
+
+
+
   

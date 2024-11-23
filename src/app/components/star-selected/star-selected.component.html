@@ -1,3 +1,6 @@
+<div class="before">
+  
+</div>
 <div class="container">
     <div class="row">
         <!-- Image section (left) -->
@@ -8,6 +11,8 @@
             <h1 class="text-center text-bold">{{star.price|currency:'USD'}}</h1>
             <p class="star-name">{{star.name|uppercase}}</p>
             <p><strong>Category: </strong>{{star.category}}</p>
+            <p><strong>Date of Birth : </strong>{{star.dateDeFormation | date}}</p>
+
             <p>{{star.description}}</p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero labore nam corporis voluptatibus reiciendis. Reprehenderit quam, saepe, at tempore possimus consectetur ducimus rem iusto excepturi, fuga consequatur rerum quod similique? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod, harum. Magnam, facere odit soluta, culpa at ipsam, laboriosam beatae itaque illo voluptatem incidunt doloribus qui consectetur? Praesentium eos dolorum possimus?
             <button (click)="onClick()" class="btn btn-primary">ADD to cart</button>
             <!-- <button (click)="onClick()">ADD A comment</button> -->
@@ -18,18 +23,27 @@
             
           </div>
         </div>
-        <div class="comments-section">
-          <div class="d-flex comment-input m-2">
-            <input type="text" id="com" placeholder="Write your comment here" [(ngModel)]="commentaire.message" class="comment-input-field">
-            <button (click)="onAdd()" class="btn btn-primary add-comment-btn">ADD A comment</button>
-          </div>
-          @for(comment of lesCom ; track $index){
-            <div class="comment">
-              <p>{{comment.username}} :
-              {{comment.message}}</p>
-            </div>
+        @if (userService.isLoggedIn()) {
+          <div class="comments-section">
             
-          }
-      </div>
+            <div class="d-flex comment-input m-2">
+  
+              <input type="text" id="com" placeholder="Write your comment here" [(ngModel)]="commentaire.message" class="comment-input-field">
+              <button (click)="onAdd()" class="btn btn-primary add-comment-btn">ADD A comment</button>
+            </div>
+            @for(comment of lesCom ; track $index){
+              <div class="comment">
+                <p>{{comment.username}} :
+                {{comment.message}}</p>
+                @if(comment.username ==this.userService.getDataFromToken().name){
+                  <div><i (click)="deleteComment($index)" cli class="fa fa-trash mb-1 text-danger" style="cursor: pointer;"></i></div>
+  
+                }
+              </div>
+              
+            }
+        </div>
+
+        }
     
     

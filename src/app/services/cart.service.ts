@@ -12,7 +12,6 @@ export class CartService {
       if(cart){
         cart.push(star);
         localStorage.setItem('cart', JSON.stringify(cart));
-        
 
       }
     console.log("tableau des stars :" + JSON.stringify(cart));

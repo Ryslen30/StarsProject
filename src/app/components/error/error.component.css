@@ -1,41 +1,38 @@
-/* General container style */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh; /* Full viewport height */
     color: white;
-    width: 2000px;
+    padding: 0 20px; /* Padding for smaller screens */
 }
-.all{
-    background: linear-gradient(135deg, rgba(30, 33, 58, 0.9), rgba(0, 0, 30, 1));
 
+/* Background with a new gradient */
+.all {
+    background: linear-gradient(135deg, #2c3e50, #1a2536); /* Adjusted to complement #2c3e50 */
 }
 
 /* Centering the content in the container */
 .error-container {
     text-align: center;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(20, 20, 30, 0.8); /* Slightly darker transparent background */
     border-radius: 15px;
-    width: 400px;
+    width: 90%;
+    max-width: 800px;
     padding: 40px;
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
     position: relative;
 }
-
-/* Glowing effect on the 404 error code */
 .error-code {
-    font-size: 6rem;
+    font-size: 4rem; /* Adjusted for smaller screens */
     font-weight: 700;
-    background: linear-gradient(45deg, #00b3ff, #ff00d4); /* Glowing gradient */
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: glow 1.5s infinite alternate;
+    position: relative;
+    text-shadow: 0 0 5px rgba(0, 183, 255, 0.8), 0 0 10px rgba(255, 0, 212, 0.8);
 }
 
 /* Subheading styling for "Page Not Found" */
 .error-message {
-    font-size: 2rem;
+    font-size: 1.5rem; /* Adjusted for smaller screens */
     margin-top: 20px;
     color: #d4d4d4;
     font-weight: 400;
@@ -48,9 +45,10 @@
     padding: 10px 20px;
     border-radius: 30px;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-top: 30px;
     transition: all 0.3s ease-in-out;
+    display: inline-block;
 }
 
 .btn-homepage:hover {
@@ -65,8 +63,18 @@
     100% { text-shadow: 0 0 20px rgba(0, 183, 255, 1), 0 0 30px rgba(255, 0, 212, 1); }
 }
 
-/* Adding a subtle cosmic background effect */
-body {
-    background: url('https://www.w3schools.com/w3images/stars.jpg') no-repeat center center fixed;
-    background-size: cover;
+/* Ensure responsive design */
+@media (max-width: 576px) {
+    .error-code {
+        font-size: 3rem; /* Smaller font for small screens */
+    }
+
+    .error-message {
+        font-size: 1.2rem;
+    }
+
+    .btn-homepage {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
 }
