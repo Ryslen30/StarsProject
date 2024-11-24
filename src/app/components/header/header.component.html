@@ -24,9 +24,9 @@
             </ul>
           </nav>
 
-          <div class="d-flex ms-auto  align-items-center gap-4 buttons-hide">
-            @if (userService.isLoggedIn() == false) {
-            <button class="btn btn-outline-info" routerLink="/login" routerLinkActive="active">Sign-in</button>
+          <div class="d-flex ms-auto  align-items-center gap-4">
+            @if (userService.isLoggedIn() == false && adminService.isLoggedIn() == false) {
+              <button class="btn btn-outline-info"  routerLink="/login" routerLinkActive="active">Sign-in</button>
             }
             @if (adminService.isLoggedIn()) {
               <i [routerLink]="['/admin/'+ adminService.getDataFromToken()._id]" class="bi bi-person fs-2" style="color: white;"></i>
@@ -34,11 +34,9 @@
               <button class="btn btn-outline-info" (click)="logOutAdmin()" routerLinkActive="active">LogOut</button>
             }
             @else if (userService.isLoggedIn() == true) {
-            <i [routerLink]="['/user/'+ userService.getDataFromToken()._id]" class="bi bi-person fs-2"
-              style="color: white;"></i>
-            <button class="btn btn-outline-info" routerLink="/cart" routerLinkActive="active"><i
-                class="bi bi-cart"></i></button>
-            <button class="btn btn-outline-info" (click)="logOut()" routerLinkActive="active">LogOut</button>
+              <i [routerLink]="['/user/'+ userService.getDataFromToken()._id]" class="bi bi-person fs-2" style="color: white;"></i>
+              <button class="btn btn-outline-info" routerLink="/cart" routerLinkActive="active"><i class="bi bi-cart"></i></button>
+              <button class="btn btn-outline-info" (click)="logOut()" routerLinkActive="active">LogOut</button>
             }
           </div>
           <!-- Toggle Button for Mobile Menu -->
