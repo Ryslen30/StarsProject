@@ -14,8 +14,11 @@
             <p><strong>State: </strong>{{star.state|state}}</p>
             <p><strong>Date of Birth : </strong>{{star.dateDeFormation | date}}</p>
 
-            <p>{{star.description}}</p> 
-            <button (click)="onClick()" class="btn btn-primary">ADD to cart</button>
+            <p>{{star.description}}</p>
+            @if(adminService.isLoggedIn()==false){
+
+              <button (click)="onClick()" class="btn btn-primary">ADD to cart</button>
+            }
             <!-- <button (click)="onClick()">ADD A comment</button> -->
             
             <button (click)="Back()" class="btn btn-dark"><i class="bi bi-arrow-90deg-left"></i> Retour</button>
@@ -24,22 +27,33 @@
             
           </div>
         </div>
-        @if (userService.isLoggedIn()) {
+        @if (this.userService.isLoggedIn() || this.adminService.isLoggedIn()) {
           <div class="comments-section">
             
             <div class="d-flex comment-input m-2">
-  
+              <strong>Comments : </strong>
+              @if(this.lesCom.length==0){
+                <strong>No comments yet.</strong>
+              }
+              @if(this.adminService.isLoggedIn()==false) {
               <input type="text" id="com" placeholder="Write your comment here" [(ngModel)]="commentaire.message" class="comment-input-field">
-              <button (click)="onAdd()" class="btn btn-primary add-comment-btn">ADD A comment</button>
+
+                <button (click)="onAdd()" class="btn btn-primary add-comment-btn">ADD A comment</button>
+              }
             </div>
+            
+
             @for(comment of lesCom ; track $index){
               <div class="comment">
-                <p>{{comment.username}} :
-                {{comment.message}}</p>
-                @if(comment.username ==this.userService.getDataFromToken().name){
+                {{comment.username}} :
+                {{comment.message}}
+                @if((comment.username ===this.userService.getDataFromToken()?.name) || this.adminService.getDataFromToken()?.name){
                   <div><i (click)="deleteComment($index)" cli class="fa fa-trash mb-1 text-danger" style="cursor: pointer;"></i></div>
   
                 }
+              
+              
+            
               </div>
               
             }

@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { CommentService } from '../../services/comment.service';
 import { Commentaire } from '../../Classes/CommentClass/commentaire';
 import { UserService } from '../../services/user.service';
+import { AdminService } from '../../services/admin.service';
 import { StatePipe } from '../../pipes/state.pipe';
 
 
@@ -32,6 +33,8 @@ export class StarSelectedComponent implements OnInit {
 
   userService: UserService = inject(UserService);
 
+  adminService: AdminService = inject(AdminService);
+
 
   star!: Star;
   id !: string;
@@ -47,6 +50,7 @@ export class StarSelectedComponent implements OnInit {
     console.log(tokendata);
 
     this.commentaire.username = tokendata ? this.userService.getDataFromToken().name : 'Guest';
+  
     console.log("username :" + this.commentaire.username);
 
     this.starService.getStarsById(this.id)
@@ -58,8 +62,11 @@ export class StarSelectedComponent implements OnInit {
             this.commentService.getCommentById(idComment)
               .subscribe(
                 (res) => {
-                  this.lesCom.unshift(res);
-                  console.log(this.lesCom);
+                  if(res && res.message){
+                    this.lesCom.unshift(res);
+                    console.log(this.lesCom);
+
+                  }
 
                   console.log(res)
                 },
@@ -80,6 +87,10 @@ export class StarSelectedComponent implements OnInit {
   }
 
   onAdd() {
+    if (!this.commentaire.message.trim()) {
+      console.log("Empty message cannot be added.");
+      return; // Prevent adding empty comments
+    }
     this.starService.addComment(this.id, this.commentaire).subscribe(
       (updatedStar) => {
         console.log("Added comment successfully");
@@ -121,5 +132,7 @@ export class StarSelectedComponent implements OnInit {
     )
     console.log("commentaires :" +JSON.stringify(this.lesCom));
   }
+
+  
 
 }

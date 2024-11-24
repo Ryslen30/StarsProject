@@ -1,0 +1,26 @@
+<div class="login-container">
+    <div class="login-box">
+      <h1>Admin Portal</h1>
+      <p>Enter your credentials to access the dashboard</p>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="input-group">
+          <input 
+            type="text" 
+            formControlName="email" 
+            placeholder="email" 
+            required 
+          />
+        </div>
+        <div class="input-group">
+          <input 
+            type="password" 
+            formControlName="password" 
+            placeholder="Password" 
+            required 
+          />
+        </div>
+        <button type="submit" class="login-button" [disabled]="!loginForm.valid">Login</button>
+      </form>
+    </div>
+  </div>
+  

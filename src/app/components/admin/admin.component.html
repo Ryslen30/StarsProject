@@ -8,7 +8,7 @@
                         <div class="col-sm-8 m-2"><h2>Stars <b>Details</b></h2></div>
                         <input class="form-control fs-5" type="text" class="input" (input)="search($event)"  placeholder="Search for stars..." aria-label="Search" style="max-width: 300px; background-color: #2c3e50; border: 2px solid rgba(0,0,0,.05); color: white; border-radius: 10px">
                         <div class="col-sm-4">
-                            <button routerLink="/add" type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                            <button  [routerLink]="['/admin/add']" type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                                <td>{{star.price}}</td>
                                <td>
                                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                   <a class="edit" [routerLink]="['/edit/' + star._id]" title="Edit" data-toggle="tooltip" ><i class="material-icons">&#xE254;</i></a>
+                                   <a class="edit" [routerLink]="['/admin/edit/' + star._id]" title="Edit" data-toggle="tooltip" ><i class="material-icons">&#xE254;</i></a>
                                    <a class="delete" (click)="delete(star._id , $index)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                </td>
                            </tr>

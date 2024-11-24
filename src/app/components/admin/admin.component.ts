@@ -29,6 +29,7 @@ export class AdminComponent implements OnInit {
       (data)=>{
         this.stars.splice(indice , 1);
         console.log("succesfully deleted");
+        alert("succesfully deleted");
         
       }
     )

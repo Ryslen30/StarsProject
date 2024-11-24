@@ -15,16 +15,15 @@
         </i>
         <p class="p-1">{{ star.likes }} Likes</p>
       </div>
-    } @else {
-      <p>Please log in to like and add to cart</p>
-    }
+    } 
 
     <div class="button-wrapper">
       <button class="btn outline" [routerLink]="['/stars', star._id]">Details</button>
 
       @if (userService.isLoggedIn()) {
         <button class="btn fill" (click)="onClick()">Add to Cart</button>
-      } @else {
+      } @else if (admineService.isLoggedIn()==false) {
+
         <button class="btn fill" [routerLink]="['/login']">Buy Now</button>
       }
     </div>

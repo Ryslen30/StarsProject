@@ -13,20 +13,30 @@
               <li><a routerLink="/home" class="nav-link" routerLinkActive="active">Home</a></li>
               <li><a routerLink="/about" class="nav-link" routerLinkActive="active">About</a></li>
               <li><a routerLink="/viewstars" class="nav-link" routerLinkActive="active">ViewStars</a></li>
-              <li><a routerLink="/contact" class="nav-link" routerLinkActive="active">Contact</a></li>
+              @if(adminService.isLoggedIn() == false){
+
+                <li><a routerLink="/contact" class="nav-link" routerLinkActive="active">Contact</a></li>
+              }
+              @if(adminService.isLoggedIn()){
+                <li><a routerLink="/admin" class="nav-link" routerLinkActive="active">Dashboard</a></li>
+
+              }
             </ul>
           </nav>
 
-          <div class="d-flex ms-auto  align-items-center gap-4 buttons-hide">
-            @if (userService.isLoggedIn() == false) {
-            <button class="btn btn-outline-info" routerLink="/login" routerLinkActive="active">Sign-in</button>
+          <div class="d-flex ms-auto  align-items-center gap-4">
+            @if (userService.isLoggedIn() == false && adminService.isLoggedIn() == false) {
+              <button class="btn btn-outline-info"  routerLink="/login" routerLinkActive="active">Sign-in</button>
+            }
+            @if (adminService.isLoggedIn()) {
+              <i [routerLink]="['/admin/'+ adminService.getDataFromToken()._id]" class="bi bi-person fs-2" style="color: white;"></i>
+
+              <button class="btn btn-outline-info" (click)="logOutAdmin()" routerLinkActive="active">LogOut</button>
             }
             @else if (userService.isLoggedIn() == true) {
-            <i [routerLink]="['/user/'+ userService.getDataFromToken()._id]" class="bi bi-person fs-2"
-              style="color: white;"></i>
-            <button class="btn btn-outline-info" routerLink="/cart" routerLinkActive="active"><i
-                class="bi bi-cart"></i></button>
-            <button class="btn btn-outline-info" (click)="logOut()" routerLinkActive="active">LogOut</button>
+              <i [routerLink]="['/user/'+ userService.getDataFromToken()._id]" class="bi bi-person fs-2" style="color: white;"></i>
+              <button class="btn btn-outline-info" routerLink="/cart" routerLinkActive="active"><i class="bi bi-cart"></i></button>
+              <button class="btn btn-outline-info" (click)="logOut()" routerLinkActive="active">LogOut</button>
             }
           </div>
           <!-- Toggle Button for Mobile Menu -->
