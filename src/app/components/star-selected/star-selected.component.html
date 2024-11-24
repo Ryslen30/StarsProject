@@ -5,15 +5,16 @@
     <div class="row">
         <!-- Image section (left) -->
         <div class="col-md-4 col-12 image">
-            <img [src]="'http://127.0.0.1:3000/getimage/' + star.photo" alt="picture not available" class="img-fluid">
+            <img [src]="'http://127.0.0.1:3000/getimage/' + star.photo" alt="picture not available" class="img-fluid" >
         </div>
         <div class="text">
             <h1 class="text-center text-bold">{{star.price|currency:'USD'}}</h1>
             <p class="star-name">{{star.name|uppercase}}</p>
             <p><strong>Category: </strong>{{star.category}}</p>
+            <p><strong>State: </strong>{{star.state|state}}</p>
             <p><strong>Date of Birth : </strong>{{star.dateDeFormation | date}}</p>
 
-            <p>{{star.description}}</p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero labore nam corporis voluptatibus reiciendis. Reprehenderit quam, saepe, at tempore possimus consectetur ducimus rem iusto excepturi, fuga consequatur rerum quod similique? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod, harum. Magnam, facere odit soluta, culpa at ipsam, laboriosam beatae itaque illo voluptatem incidunt doloribus qui consectetur? Praesentium eos dolorum possimus?
+            <p>{{star.description}}</p> 
             <button (click)="onClick()" class="btn btn-primary">ADD to cart</button>
             <!-- <button (click)="onClick()">ADD A comment</button> -->
             

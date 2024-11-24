@@ -38,6 +38,7 @@ export class EditComponent implements OnInit {
         photo: [''],
         category: [this.star.category],
         description: [this.star.description],
+        state: [this.star.state] 
       });
     }
   )
@@ -69,12 +70,11 @@ export class EditComponent implements OnInit {
     }
     fd.append('category', this.UpdateStarForm.get('category')?.value);
     fd.append('description', this.UpdateStarForm.get('description')?.value);
-
-   
-    
+    fd.append('state', this.UpdateStarForm.get('state')?.value);
     this.starService.updateStar(id , fd).subscribe(
       ()=>{
         console.log("star updated")
+        alert('updated successfully')
         this.router.navigate(['/admin'])
       },
       (err)=>{

@@ -2,94 +2,60 @@
 <div class="stars"></div>
 <div class="form-container">
   <h1>Space Product Form</h1>
-  <form [formGroup]="UpdateStarForm" (ngSubmit)="onUpdate(id, star)" >
+  <form [formGroup]="UpdateStarForm" (ngSubmit)="onUpdate(id, star)">
     <!-- Name -->
     <div class="form-group">
       <label for="name">Product Name</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        class="form-control"
-        
-        required
-        placeholder="Enter product name"
-        formControlName="name"
-        
-        
-      />
+      <input type="text" id="name" name="name" class="form-control" required placeholder="Enter product name"
+        formControlName="name" />
     </div>
 
     <!-- Price -->
     <div class="form-group">
       <label for="price">Price</label>
-      <input
-        type="number"
-        id="price"
-        name="price"
-        class="form-control"
-        
-        required
-        placeholder="Enter price"
-        formControlName="price"
-       
-        
-      />
+      <input type="number" id="price" name="price" class="form-control" required placeholder="Enter price"
+        formControlName="price" />
     </div>
-        <!-- Current Photo -->
-        <div class="form-group">
-            <label>Current Photo</label><br>
-            <img
-            style="border-radius: 10px;"
-              [src]="'http://127.0.0.1:3000/getimage/' + star.photo "
-              alt="Star Photo"
-              class="current-photo"
-              width="80px"
-              height="60px"
-            />
-          </div>
+    <!-- Current Photo -->
+    <div class="form-group">
+      <label>Current Photo</label><br>
+      <img style="border-radius: 10px;" [src]="'http://127.0.0.1:3000/getimage/' + star.photo " alt="Star Photo"
+        class="current-photo" width="80px" height="60px" />
+    </div>
     <!-- Photo -->
     <div class="form-group">
       <label for="photo">New Photo</label>
-      <input
-        type="file"
-        id="photo"
-        name="photo"
-        class="form-control"
-       
-        (change)="onFileChange($event)"
-    
-      />
+      <input type="file" id="photo" name="photo" class="form-control" (change)="onFileChange($event)" />
     </div>
 
     <!-- Category -->
     <div class="form-group">
       <label for="category">Category</label>
-      <select id="category" name="category" class="form-control"  required  formControlName="category" >
+      <select id="category" name="category" class="form-control" required formControlName="category">
         <option value="" disabled >Select a category</option>
-        <option value="duonova">duonova</option>
-        <option value="nebula">nebula</option>
-        <option value="galaxy">Galaxy</option>
-        <option value="comet">Comet</option>
+        <option value="Celestial Titans">Celestial Titans</option>
+        <option value="Guiding Lights">Guiding Lights</option>
+        <option value="Constellation Gems">Constellation Gems</option>
+        <option value="Binary Marvels">Binary Marvels</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="state">Status:</label>
+      <select id="state" class="form-control" formControlName="state">
+        <option value="false">Dead</option>
+        <option value="true">Alive</option>
       </select>
     </div>
 
     <!-- Description -->
     <div class="form-group">
       <label for="description">Description</label>
-      <textarea
-        id="description"
-        name="description"
-        class="form-control"
-        rows="4"
-        placeholder="Describe the product"
-        formControlName="description"
-       
-      ></textarea>
+      <textarea id="description" name="description" class="form-control" rows="4" placeholder="Describe the product"
+        formControlName="description"></textarea>
     </div>
 
     <!-- Submit Button -->
-    <button type="submit" class="btn-submit"  >
+    <button type="submit" class="btn-submit">
       Submit
     </button>
   </form>

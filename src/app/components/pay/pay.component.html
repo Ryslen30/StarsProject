@@ -1,0 +1,40 @@
+<div class="before"></div>
+<div class="all">
+<div class="card">
+    <form class="form" [formGroup]="payForm" >
+    <div class="credit-card-info--form">
+    <div class="input_container">
+      <label for="password_field" class="input_label">Card holder full name</label>
+      <input id="password_field" class="input_field" type="text" name="input-name" title="Inpit title" placeholder="Enter your full name" formControlName="name">
+      @if(payForm.get('name')?.errors?.['pattern'] && payForm.get('name')?.dirty){
+        <div class="alert alert-danger">your name must start with a capital letter</div>
+    }
+    </div>
+    
+    <div class="input_container">
+      <label for="password_field" class="input_label">Card Number</label>
+      <input id="password_field" class="input_field" type="text" name="input-name" title="Inpit title" placeholder="0000 0000 0000 0000" formControlName="cardNumber">
+      @if (isValid()) {
+        <div class="alert alert-danger">Card number must be 16 digits</div>
+      }
+      
+    </div>
+    <div class="input_container">
+      <label for="password_field" class="input_label">Expiry Date / CVV</label>
+      <div class="split">
+      <input id="password_field" class="input_field" type="text" name="input-name" title="Expiry Date" placeholder="01/23" formControlName="expirationDate">
+      
+      <input id="password_field" class="input_field" type="text" name="cvv" title="CVV" placeholder="CVV" formControlName="cvv">
+      @if (payForm.get('expirationDate')?.errors?.['pattern']&& payForm.get('expirationDate')?.dirty) {
+        <div class="alert alert-danger">Expiration date must be in the format MM/YY</div>
+      }
+      @if ((payForm.get('cvv')?.errors?.['minlength'] || payForm.get('cvv')?.errors?.['maxlength'])&& payForm.get('cvv')?.dirty) {
+        <div class="alert alert-danger">CVV must be 3 digits</div>
+      }
+    </div>
+    </div>
+  </div>
+    <button class="purchase--btn"  (click)="buy()">Checkout</button>
+    </form>
+</div>
+</div>

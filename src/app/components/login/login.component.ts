@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, FormsModule],
+  imports: [RouterLink, FormsModule,ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -14,6 +14,8 @@ export class LoginComponent {
   visible: boolean = false;
   private userService: UserService= inject(UserService);
   private readonly router : Router = inject(Router);
+  readonly formbuilder: FormBuilder = inject(FormBuilder);
+  loginForm!: FormGroup;
   user={
     password : "",
     email : "",
@@ -34,6 +36,13 @@ export class LoginComponent {
   )
 
   }
+  ngOnInit(): void{
+    this.loginForm = this.formbuilder.group({
+      password: ['',[Validators.required]],
+      email: ['',[Validators.required,Validators.email]]
+
+    });
+   }
   
 
 

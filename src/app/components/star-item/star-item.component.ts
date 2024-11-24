@@ -22,46 +22,37 @@ export class StarItemComponent {
   readonly userService: UserService = inject(UserService);
   readonly router: Router = inject(Router);
 
-  i: number = 0; // Tracks like state
+  i: number = 0; 
 
   ngOnInit() {
-    // Retrieve the like state from localStorage (if available)
     const likedStar = localStorage.getItem(`likedStar_${this.star._id}`);
     if (likedStar) {
-      // If the star was liked (stored in localStorage), set the like state accordingly
       this.i = 1;
     } else {
       this.i = 0;
-      // Decrement the likes of the star if it was not liked
       this.star.likes -= 1;
     }
   }
 
-  // Update the like status
   onUpdate(s: Star) {
     if (this.i > 0) {
-      // Unlike logic
       this.i = 0;
       s.likes -= 1;
 
-      // Remove the like from localStorage
       localStorage.removeItem(`likedStar_${s._id}`);
     } else {
-      // Like logic
       this.i = 1;
       s.likes += 1;
 
-      // Store the like state in localStorage
       localStorage.setItem(`likedStar_${s._id}`, 'true');
     }
 
     const updatedStar: Star = { ...s, likes: s.likes };
 
-    // Call the service to update the star on the backend
     this.starService.updateStar(s._id, updatedStar).subscribe(
       (updatedStarFromServer) => {
         console.log('Successfully updated star:', updatedStarFromServer);
-        this.updateEvent.emit(s._id); // Emit the update event
+        this.updateEvent.emit(s._id); 
       },
       (error) => {
         console.error('Error updating star:', error);

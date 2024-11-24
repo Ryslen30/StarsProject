@@ -1,27 +1,26 @@
-
 <div class="before">
-    
+
 </div>
 
 <div class="container ">
     <div class="text col-md-4">
         <h1 class="text-info">How can you contact us?</h1>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, eos enim consectetur qui, eum obcaecati
-            temporibus culpa reiciendis</p>
-            <ul>
-                <li><i class="fas fa-phone"></i> Phone: +1 123-456-7890</li>
-                <li><i class="fas fa-envelope"></i> Email: infoexample.com</li>
-                <li><i class="fab fa-facebook"></i> Facebook: facebook.com/example</li>
-            </ul>
+        <p>Reach out to us with any questions, suggestions, or just to say hello. We're here to help and ensure a great
+            experience. Use the form     to send a message, and we'll respond promptly.</p>
+        <ul>
+            <li> Phone: +1 123-456-7890</li>
+            <li> Email: Starlik&#64;gmail.com</li>
+        </ul>
     </div>
     <div class="form col-md-6 card shadow">
         <form>
             <label for="email">Email</label><br>
             <input type="email" name="email" placeholder="Your Email" [(ngModel)]="email_id" class="input"><br>
             <label for="message">Message</label><br>
-            <textarea name="message" placeholder="tell us what you need here!"  [(ngModel)]="message" cols="40" rows="10" class="textarea" ></textarea><br>
+            <textarea name="message" placeholder="tell us what you need here!" [(ngModel)]="message" cols="40" rows="10"
+                class="textarea"></textarea><br>
             <button type="submit" class="btn btn-info" (click)="sendMail()">Submit</button>
         </form>
     </div>
-    
+
 </div>

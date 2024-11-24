@@ -8,12 +8,13 @@ import { FormsModule } from '@angular/forms';
 import { CommentService } from '../../services/comment.service';
 import { Commentaire } from '../../Classes/CommentClass/commentaire';
 import { UserService } from '../../services/user.service';
+import { StatePipe } from '../../pipes/state.pipe';
 
 
 @Component({
   selector: 'app-star-selected',
   standalone: true,
-  imports: [CurrencyPipe, UpperCasePipe, FormsModule, DatePipe],
+  imports: [CurrencyPipe, UpperCasePipe, FormsModule, DatePipe,StatePipe],
   templateUrl: './star-selected.component.html',
   styleUrl: './star-selected.component.css'
 })

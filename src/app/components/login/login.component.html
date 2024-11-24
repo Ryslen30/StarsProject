@@ -7,20 +7,26 @@
       <!-- Right Form Section -->
       <div class="booking-form d-flex flex-column justify-content-center">
         <h1 class="text-dark">Sign-in</h1>
-        <small id="emailHelp" class="form-text text-muted">By logging in, you confirm that you accept our Terms and Conditions.</small>
-        <form>
+        <small id="emailHelp" class="form-text text-muted">By logging in, you confirm that you accept our Terms and Conditions.</small> <br><br>
+        <form [formGroup]="loginForm">
           <div class="mb-3">
-            <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" placeholder="Email address" required>
+            <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" placeholder="Email address" formControlName="email" required>
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            @if(loginForm.get('email')?.invalid && loginForm.get('email')?.dirty){
+              <p class="alert alert-danger">Email is required and must be valid</p>
+            }
           </div>
           <div class="mb-3">
-            <input type="password" class="form-control" id="password"  [(ngModel)]="user.password" name="password" placeholder="Password" required>
+            <input type="password" class="form-control" id="password"  [(ngModel)]="user.password" name="password" placeholder="Password" formControlName="password" required>
+            @if(loginForm.get('password')?.invalid && loginForm.get('password')?.dirty){
+              <p class="alert alert-danger">Password is required</p>
+            }
           </div>
-          <button  class="btn btn-custom btn-info" (click)="login()">Sign-in</button>
+          <button  class="btn btn-custom btn-info" (click)="login()" [disabled]="loginForm.invalid">Sign-in</button>
           {{error}}
           <div class="form-footer">
             <a routerLink="/forgotpassword">Forgot password?</a> <br>
-            don't have an account?  <a routerLink="/signup" class="text-dark">Sign Up</a>
+            don't have an account?  <a routerLink="/signup" class="text-dark" >Sign Up</a>
           </div>
         </form>
       </div>

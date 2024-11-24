@@ -1,64 +1,51 @@
 <div class="background d-flex flex-wrap" id="bg">
 
-  <!-- Welcome Section -->
-  <div class="container-fluid text-center py-5" style="color: white;">
-      <h1 class="display-4 mb-3" style="font-family: 'Roboto', sans-serif; font-weight: 700; color: #cce7ff;">
-          Welcome to Starlik
-      </h1>
-      <p class="fs-5 mb-4" style="font-family: 'Roboto', sans-serif; color: #a2c2f2;">
-          "Name a star, shine forever."
-      </p>
+    <!-- Welcome Section -->
+    <div class="container-fluid text-center py-5" style="color: white;">
+        <h1 class="display-4 mb-3" style="font-family: 'Roboto', sans-serif; font-weight: 700; color: #cce7ff;">
+            Welcome to Starlik
+        </h1>
+        <p class="fs-5 mb-4" style="font-family: 'Roboto', sans-serif; color: #a2c2f2;">
+            "Name a star, shine forever."
+        </p>
 
-      <!-- Search and Filters Section -->
-      <div class="d-flex flex-column flex-md-row justify-content-center gap-3 mb-4 align-items-center">
-          <!-- Search Bar -->
-          <input 
-              class="form-control fs-5 input" 
-              type="text" 
-              (input)="search($event)" 
-              placeholder="Search for stars..." 
-              aria-label="Search" 
-              style="max-width: 300px; color: black;"
-          />
+        <!-- Search and Filters Section -->
+        <div class="d-flex flex-column flex-md-row justify-content-center gap-3 mb-4 align-items-center">
+            <!-- Search Bar -->
+            <input class="form-control fs-5 input" type="text" (input)="search($event)"
+                placeholder="Search for stars..." aria-label="Search" style="max-width: 300px; color: black;" />
 
-          <!-- Filters -->
-          <div class="d-flex flex-column flex-md-row justify-content-center gap-3 align-items-center">
-              <label for="price-category" style="color: #a2c2f2;">Category:</label>
-              <select 
-                  id="price-category" 
-                  class="form-select fs-5" 
-                  [(ngModel)]="category" 
-                  [ngModelOptions]="{standalone: true}" 
-                  style="background-color: #1a2d5c; color: white; border: 1px solid #fff;">
-                  <option value="all">Default</option>
-                  <option value="duonova">Duonova</option>
-                  <option value="nebula">Nebula</option>
-              </select>
+            <!-- Filters -->
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-3 align-items-center">
+                <label for="price-category" style="color: #a2c2f2;">Category:</label>
+                <select id="price-category" class="form-select fs-5" [(ngModel)]="category"
+                    [ngModelOptions]="{standalone: true}"
+                    style="background-color: #1a2d5c; color: white; border: 1px solid #fff;">
+                    <option value="all">Default</option>
+                    <option value="Celestial Titans">Celestial Titans</option>
+                    <option value="Guiding Lights">Guiding Lights</option>
+                    <option value="Constellation Gems">Constellation Gems</option>
+                    <option value="Binary Marvels">Binary Marvels</option>
+                </select>
 
-              <label for="price-state" style="color: #a2c2f2;">Status:</label>
-              <select 
-                  id="price-state" 
-                  class="form-select fs-5" 
-                  [(ngModel)]="state" 
-                  [ngModelOptions]="{standalone: true}" 
-                  style="background-color: #1a2d5c; color: white; border: 1px solid #fff;">
-                  <option value="all">Default</option>
-                  <option value="false">Dead</option>
-                  <option value="true">Alive</option>
-              </select>
+                <label for="price-state" style="color: #a2c2f2;">State:</label>
+                <select id="price-state" class="form-select fs-5" [(ngModel)]="state"
+                    [ngModelOptions]="{standalone: true}"
+                    style="background-color: #1a2d5c; color: white; border: 1px solid #fff;">
+                    <option value="all">Default</option>
+                    <option value="false">Dead</option>
+                    <option value="true">Alive</option>
+                </select>
 
-              <button 
-                  class="btn btn-outline-info" 
-                  type="submit" 
-                  (click)="filter()">
-                  Filter
-              </button>
-          </div>
-      </div>
-  </div>
-  <div class="background d-flex flex-wrap" id="bg" style=" justify-content: space-evenly;" >
-   @for ( star of filteredStars; track $index) {
-      <app-star-item [star]="star" (updateEvent)="onUpdate($event)" ></app-star-item>
-   }
-</div>
+                <button class="btn btn-outline-info" type="submit" (click)="filter()">
+                    Filter
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="background d-flex flex-wrap" id="bg" style=" justify-content: space-evenly;">
+        @for ( star of filteredStars; track $index) {
+        <app-star-item [star]="star" (updateEvent)="onUpdate($event)"></app-star-item>
+        }
+    </div>
 </div>
