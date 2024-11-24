@@ -15,6 +15,7 @@ import { AdminService } from '../../services/admin.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+
    readonly userService: UserService = inject(UserService);
    private router : Router = inject(Router);
    adminService : AdminService = inject(AdminService);
@@ -36,6 +37,11 @@ export class HeaderComponent {
   }
   isActive(route: string): boolean {
     return this.router.url === route;
+  }
+  isMobileMenuOpen = false;
+
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 
 

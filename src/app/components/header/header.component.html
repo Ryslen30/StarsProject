@@ -1,30 +1,13 @@
-
 <div class="background">
-  <div class="site-mobile-menu site-navbar-target d-lg-none">
-    <div class="site-mobile-menu-header">
-      <div class="site-mobile-menu-close ">
-        <span class="icon-close2 js-menu-toggle">&#x2715;</span>
-      </div>
-    </div>
-    <div class="site-mobile-menu-body">
-      <ul class="site-menu">
-        <li><a routerLink="/home" class="nav-link">Home</a></li>
-        <li><a routerLink="/about" class="nav-link">About</a></li>
-        <li><a routerLink="/viewstars" class="nav-link">ViewStars</a></li>
-        <li><a routerLink="/contact" class="nav-link">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <header class="site-navbar site-navbar-target"  role="banner">
-   
+  <header class="site-navbar site-navbar-target" role="banner">
+    
       <div class="row align-items-center position-relative">
         <div class="col-3">
           <div class="site-logo">
             <a class="font-weight-bold text-white" routerLink="/home" style="font-size: larger;">STARLIK</a>
           </div>
         </div>
-        <div class="col-9 d-flex justify-content-between" >
+        <div class="col-9 d-flex justify-content-between">
           <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
             <ul class="site-menu main-menu js-clone-nav " style="margin-left: 300px;">
               <li><a routerLink="/home" class="nav-link" routerLinkActive="active">Home</a></li>
@@ -41,9 +24,9 @@
             </ul>
           </nav>
 
-          <div class="d-flex ms-auto  align-items-center gap-4">
-            @if (userService.isLoggedIn() == false && adminService.isLoggedIn() == false) {
-              <button class="btn btn-outline-info"  routerLink="/login" routerLinkActive="active">Sign-in</button>
+          <div class="d-flex ms-auto  align-items-center gap-4 buttons-hide">
+            @if (userService.isLoggedIn() == false) {
+            <button class="btn btn-outline-info" routerLink="/login" routerLinkActive="active">Sign-in</button>
             }
             @if (adminService.isLoggedIn()) {
               <i [routerLink]="['/admin/'+ adminService.getDataFromToken()._id]" class="bi bi-person fs-2" style="color: white;"></i>
@@ -51,14 +34,49 @@
               <button class="btn btn-outline-info" (click)="logOutAdmin()" routerLinkActive="active">LogOut</button>
             }
             @else if (userService.isLoggedIn() == true) {
-              <i [routerLink]="['/user/'+ userService.getDataFromToken()._id]" class="bi bi-person fs-2" style="color: white;"></i>
-              <button class="btn btn-outline-info" routerLink="/cart" routerLinkActive="active"><i class="bi bi-cart"></i></button>
-              <button class="btn btn-outline-info" (click)="logOut()" routerLinkActive="active">LogOut</button>
+            <i [routerLink]="['/user/'+ userService.getDataFromToken()._id]" class="bi bi-person fs-2"
+              style="color: white;"></i>
+            <button class="btn btn-outline-info" routerLink="/cart" routerLinkActive="active"><i
+                class="bi bi-cart"></i></button>
+            <button class="btn btn-outline-info" (click)="logOut()" routerLinkActive="active">LogOut</button>
             }
+          </div>
+          <!-- Toggle Button for Mobile Menu -->
+          <div class="toggle-button d-lg-none col-sm-3">
+            <button class="btn btn-outline-info js-menu-toggle" (click)="toggleMobileMenu()">
+              <i class="bi bi-list fs-3"></i>
+            </button>
           </div>
         </div>
       </div>
-   
+    
   </header>
-</div>
+  <div class="site-mobile-menu site-navbar-target d-lg-none" [class.offcanvas-menu]="isMobileMenuOpen">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close">
+        <span class="icon-close2" (click)="toggleMobileMenu()">&#x2715;</span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body">
+      <ul class="site-menu">
+        <li><a routerLink="/home" class="nav-link">Home</a></li>
+        <li><a routerLink="/about" class="nav-link">About</a></li>
+        <li><a routerLink="/viewstars" class="nav-link">ViewStars</a></li>
+        <li><a routerLink="/contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class=".d-flex justify-content-center gap-4" >
+        @if (userService.isLoggedIn() == false) {
+          <button class="btn btn-outline-info" routerLink="/login" routerLinkActive="active" style="margin-left: 110px;">Sign-in</button>
+          }
+          @else if (userService.isLoggedIn() == true) {
+          <i [routerLink]="['/user/'+ userService.getDataFromToken()._id]" class="bi bi-person fs-2"
+            style="color: white;"></i>
+          <button class="btn btn-outline-info" routerLink="/cart" routerLinkActive="active"><i
+              class="bi bi-cart"></i></button>
+          <button class="btn btn-outline-info" (click)="logOut()" routerLinkActive="active" style="margin-left: 10px;">LogOut</button>
+          }
+      </div>
 
+    </div>
+  
+</div>
