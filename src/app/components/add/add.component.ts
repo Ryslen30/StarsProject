@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Star } from '../../Classes/StarClass/star';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StarService } from '../../services/star.service';
 
 @Component({
@@ -16,6 +16,8 @@ export class AddComponent {
 
   starService : StarService = inject(StarService);
 
+  router : Router = inject (Router);
+  
   readonly formBuilder : FormBuilder = inject(FormBuilder);
   
 
@@ -72,7 +74,9 @@ export class AddComponent {
     
     this.starService.createStar(fd).subscribe(
       (data)=>{
-        console.log("star created:" + data)
+        console.log("star created:" + JSON.stringify(data))
+        this.router.navigate(['/admin'])
+        
       },
       (err)=>{
         console.log(err);

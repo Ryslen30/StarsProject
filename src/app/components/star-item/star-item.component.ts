@@ -6,6 +6,7 @@ import { CartService } from '../../services/cart.service';
 import { StarService } from '../../services/star.service';
 import { NgClass, NgStyle } from '@angular/common';
 import { UserService } from '../../services/user.service';
+import { AdminService } from '../../services/admin.service';
 
 @Component({
   selector: 'app-star-item',
@@ -20,6 +21,7 @@ export class StarItemComponent {
   private cartService: CartService = inject(CartService);
   private starService: StarService = inject(StarService);
   readonly userService: UserService = inject(UserService);
+  admineService : AdminService = inject(AdminService)
   readonly router: Router = inject(Router);
 
   i: number = 0; // Tracks like state

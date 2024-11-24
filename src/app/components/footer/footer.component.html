@@ -11,7 +11,10 @@
                 <h6>Quick Links</h6>
                 <ul class="footer-links">
                     <li><a routerLink="/about">About Us</a></li>
-                    <li><a routerLink="/contact">Contact Us</a></li>
+                    @if(adminService.isLoggedIn() == false){
+
+                        <li><a routerLink="/contact">Contact Us</a></li>
+                    }
                     <li><a routerLink="/viewstars"> View Stars</a></li>
                     <li><a routerLink="/"> Home</a></li>
                 </ul>

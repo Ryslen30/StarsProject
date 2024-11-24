@@ -16,29 +16,42 @@ import { ViewStarsComponent } from './components/view-stars/view-stars.component
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 import { EditComponent } from './components/edit/edit.component';
 import { AddComponent } from './components/add/add.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { adminGuard } from './guards/admin.guard';
+
 export const routes: Routes = [
   {path :'home', component: HomeComponent},
   { path: 'about', component: AboutComponent }, // Route for About
   { path: 'contact', component: ContactComponent }, // Route for Contact
   {path: 'stars', component: StarsListComponent }, // Route for stars
-  {path:'rynou' , component: AdminComponent}, // Route for administration
   {path:'login',component: LoginComponent}, // Route for login
-  {path:'signup',component: SignupComponent}, // Route for signup
+  {path:'signup',component: SignupComponent},
   {path:'cart',component: CartComponent}, // Route for cart
   {path:'stars/:id',component: StarSelectedComponent}, // Route for star selection
   {path:'user/:id' , component: UserComponent}, // Route for user
   {path:'viewstars',component: ViewStarsComponent}, // Route for
   {path:'change/:id', component: ChangepasswordComponent}, // Route for change
-  {path:'forgotpassword',component: ForgotpasswordComponent}, // Route for forgot passwordng
-  {path: 'edit/:id', component: EditComponent },
-  {path: 'add', component: AddComponent },
-  {path: 'admin', component: AdminComponent},
+  {path:'forgotpassword',component: ForgotpasswordComponent}, // Route for forgot password
+  
+  {path: 'rynou', component: AdminLoginComponent},
+  {path: 'admin' ,
+    canActivate: [adminGuard],
+    children :[
+      {path :'' , component: AdminComponent},
+      {path: 'add', component: AddComponent },
+      {path: ':id', component: ChangepasswordComponent},
+      {path: 'edit/:id', component: EditComponent },
+      
+     ]
 
+   },
+
+  
   {path: '', component: HomeComponent },  
   {path :'**', component: ErrorComponent},
   
 
-        // Add other routes as needed
+       
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
