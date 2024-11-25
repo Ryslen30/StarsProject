@@ -7,7 +7,7 @@ import { StarRatingPipe } from '../../pipes/star-rating.pipe';
 @Component({
   selector: 'app-view-stars',
   standalone: true,
-  imports: [RouterLink, LoaderComponent,StarRatingPipe],
+  imports: [ LoaderComponent,StarRatingPipe],
   templateUrl: './view-stars.component.html',
   styleUrl: './view-stars.component.css'
 })

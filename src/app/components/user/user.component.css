@@ -3,29 +3,29 @@
   height:90px;
 }
 .card {
-    background: radial-gradient(circle at top, #0e2a47, #2c3e55);/* Darker blue gradient for consistency */
+    background: radial-gradient(circle at top, #0e2a47, #2c3e55);
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.3); /* Soft glowing effect */
-    animation: glow 1.5s ease-in-out infinite alternate; /* Pulsating glow effect */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.3);
+    animation: glow 1.5s ease-in-out infinite alternate;
 }
 
 .card .name, .card .number {
     color: #fff;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.4); /* Subtle glow on text */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 .card .follow {
-    color: #a0d0ff; /* Light blue for contrast */
+    color: #a0d0ff;
 }
 
 .card .btn-secondary, .card .btn-dark {
-    border-radius: 10px; /* Smooth borders for buttons */
+    border-radius: 10px;
     transition: transform 0.2s ease-in-out;
 }
 
 .card .btn-secondary:hover, .card .btn-dark:hover {
-    transform: scale(1.05); /* Hover effect to make buttons pop */
+    transform: scale(1.05);
 }
 
 .card .date {

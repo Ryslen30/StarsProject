@@ -10,7 +10,7 @@ import { AdminService } from '../../services/admin.service';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [ContactComponent, RouterLink, CartComponent,RouterLinkActive,DinarPipe,NgClass],
+  imports: [RouterLink,RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
