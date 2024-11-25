@@ -2,90 +2,81 @@
 <div class="stars"></div>
 <div class="form-container">
   <h1> + ADD Product </h1>
-  <form [formGroup]="StarForm" (ngSubmit)="onCreate()" >
+  <form [formGroup]="StarForm" (ngSubmit)="onCreate()">
     <!-- Name -->
     <div class="form-group">
       <label for="name">Product Name</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        class="form-control"
-        
-        required
-        placeholder="Enter product name"
-        formControlName="name"
-        
-        
-      />
+      <input type="text" id="name" name="name" class="form-control" required placeholder="Enter product name"
+        formControlName="name" />
     </div>
+    @if(StarForm.get('name')?.invalid && StarForm.get('name')?.dirty){
+      <div class="alert alert-danger">
+        Name is required and must be at leasr three characters
+      </div>
+    }
 
     <!-- Price -->
     <div class="form-group">
       <label for="price">Price</label>
-      <input
-        type="number"
-        id="price"
-        name="price"
-        class="form-control"
-        
-        required
-        placeholder="Enter price"
-        formControlName="price"
-       
-        
-      />
+      <input type="number" id="price" name="price" class="form-control" required placeholder="Enter price"
+        formControlName="price" />
+        @if(StarForm.get('price')?.invalid && StarForm.get('price')?.dirty){
+          <div class="alert alert-danger">
+            Price is required and must be at least 200
+          </div>
+        }
     </div>
 
     <!-- Photo -->
     <div class="form-group">
       <label for="photo"> Photo</label>
-      <input
-        type="file"
-        id="photo"
-        name="photo"
-        class="form-control"
-       
-        (change)="onFileChange($event)"
-    
-      />
+      <input type="file" id="photo" name="photo" class="form-control" (change)="onFileChange($event)" />
     </div>
 
     <!-- Category -->
     <div class="form-group">
       <label for="category">Category</label>
-      <select id="category" name="category" class="form-control"  required  formControlName="category" >
-        <option value="" disabled >Select a category</option>
+      <select id="category" name="category" class="form-control" required formControlName="category">
+        <option value="" disabled>Select a category</option>
         <option value="Celestial Titans">Celestial Titans</option>
         <option value="Guiding Lights">Guiding Lights</option>
         <option value="Constellation Gems">Constellation Gems</option>
         <option value="Binary Marvels">Binary Marvels</option>
       </select>
+      @if(StarForm.get('category')?.invalid && StarForm.get('category')?.dirty){
+        <div class="alert alert-danger">
+          Category is required 
+        </div>
+      }
     </div>
     <div class="form-group">
       <label for="state">state</label>
-      <select id="state" name="state" class="form-control"  required  formControlName="state" >
+      <select id="state" name="state" class="form-control" required formControlName="state">
         <option value="false">Dead</option>
         <option value="true">Alive</option>
       </select>
+      @if(StarForm.get('state')?.invalid && StarForm.get('state')?.dirty){
+        <div class="alert alert-danger">
+          State is required
+        </div>
+      }
     </div>
 
     <!-- Description -->
     <div class="form-group">
       <label for="description">Description</label>
-      <textarea
-        id="description"
-        name="description"
-        class="form-control"
-        rows="4"
-        placeholder="Describe the product"
-        formControlName="description"
-       
-      ></textarea>
+      <textarea id="description" name="description" class="form-control" rows="4" placeholder="Describe the product"
+        formControlName="description"></textarea>
+        
+        @if(StarForm.get('description')?.invalid && StarForm.get('description')?.dirty){
+          <div class="alert alert-danger">
+            Description is required and must be at least 500  characters long
+          </div>
+        }
     </div>
 
     <!-- Submit Button -->
-    <button type="submit" class="btn-submit"  >
+    <button type="submit" class="btn-submit" [disabled]="StarForm.invalid">
       Submit
     </button>
   </form>

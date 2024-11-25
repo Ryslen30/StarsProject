@@ -31,21 +31,13 @@ export class AddComponent {
       // Initialize the form after data is fetched
       this.StarForm = this.formBuilder.group({
         name: [''  ,[Validators.required, Validators.minLength(3)]],
-        price: [0 ,  [Validators.required, Validators.min(0)] ],
+        price: [200 ,  [Validators.required, Validators.min(200)] ],
         photo: [null],
         category: ['' , Validators.required],
         description: ['' , [Validators.required, Validators.maxLength(500)]],
-        state: ['' , Validators.required]
+        state: ['' , [Validators.required,]]
       });
     }
-    // this.StarForm = this.formBuilder.group({
-    //   name: ['', [Validators.required, Validators.minLength(3)]],
-    //   price: [null, [Validators.required, Validators.min(0)]],
-    //   photo: [null], // Will handle separately
-    //   category: ['', Validators.required],
-    //   description: ['', [Validators.required, Validators.maxLength(500)]],
-  
-    
     
   
   image ! : any;
@@ -80,7 +72,7 @@ export class AddComponent {
       (data)=>{
         console.log("star created:" + JSON.stringify(data))
         this.router.navigate(['/admin'])
-        
+        alert('star created');
       },
       (err)=>{
         console.log(err);
