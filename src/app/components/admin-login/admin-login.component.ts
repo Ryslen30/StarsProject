@@ -46,6 +46,7 @@ export class AdminLoginComponent {
         },
         (err)=>{
           console.log(err);
+          alert("wrong mail or pass")
           
         }
       )

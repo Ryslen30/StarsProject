@@ -25,6 +25,7 @@ export const routes: Routes = [
   { path: 'about', component: AboutComponent }, // Route for About
   { path: 'contact', component: ContactComponent }, // Route for Contact
   {path: 'stars', component: StarsListComponent }, // Route for stars
+  {path: 'pay', component: PayComponent }, // Route for stars
   {path:'login',component: LoginComponent}, // Route for login
   {path:'signup',component: SignupComponent},
   {path:'cart',component: CartComponent}, // Route for cart
@@ -34,6 +35,8 @@ export const routes: Routes = [
   {path:'change/:id', component: ChangepasswordComponent}, // Route for change
   {path:'forgotpassword',component: ForgotpasswordComponent}, // Route for forgot password
   {path:'pay',component: PayComponent}, // Route for pay
+  
+  
   {path: 'rynou', component: AdminLoginComponent},
   {path: 'admin' ,
     canActivate: [adminGuard],

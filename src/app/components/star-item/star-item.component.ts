@@ -66,5 +66,6 @@ export class StarItemComponent {
     console.log(this.star);
     this.cartService.addToCart(this.star);
     localStorage.setItem('star', JSON.stringify(this.star));
+    alert("Star added to cart successfully")
   }
 }

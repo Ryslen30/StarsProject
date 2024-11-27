@@ -81,9 +81,15 @@ export class StarSelectedComponent implements OnInit {
       });
   }
   onClick() {
-    console.log(this.star);
-    this.cartService.addToCart(this.star);
-    localStorage.setItem('star', JSON.stringify(this.star)); // Save to localStorage
+    if(this.userService.isLoggedIn()){
+
+      console.log(this.star);
+      this.cartService.addToCart(this.star);
+      localStorage.setItem('star', JSON.stringify(this.star)); // Save to localStorage
+    }
+    else{
+      this.router.navigate(['/login']);
+    }
   }
 
   onAdd() {
