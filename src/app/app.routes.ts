@@ -18,6 +18,7 @@ import { EditComponent } from './components/edit/edit.component';
 import { AddComponent } from './components/add/add.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { adminGuard } from './guards/admin.guard';
+import { PayComponent } from './components/pay/pay.component';
 
 export const routes: Routes = [
   {path :'home', component: HomeComponent},
@@ -32,7 +33,7 @@ export const routes: Routes = [
   {path:'viewstars',component: ViewStarsComponent}, // Route for
   {path:'change/:id', component: ChangepasswordComponent}, // Route for change
   {path:'forgotpassword',component: ForgotpasswordComponent}, // Route for forgot password
-  
+  {path:'pay',component: PayComponent}, // Route for pay
   {path: 'rynou', component: AdminLoginComponent},
   {path: 'admin' ,
     canActivate: [adminGuard],
