@@ -25,14 +25,15 @@ export class AdminComponent implements OnInit {
     });
   }
   delete(id : string , indice : number){
-    this.starService.deleteStar(id).subscribe(
-      (data)=>{
-        this.stars.splice(indice , 1);
-        console.log("succesfully deleted");
-        alert("succesfully deleted");
-        
-      }
-    )
+    if (confirm("Are you sure you want to delete this star?")) {
+      this.starService.deleteStar(id).subscribe(
+        (data)=>{
+          this.stars.splice(indice , 1);
+          console.log("succesfully deleted");
+          alert("succesfully deleted");
+        }
+      )
+    }
   }
   search( e :Event){
     let searchName =(e.target as HTMLInputElement).value.toLowerCase(); // we cant get value from a type event target ( we convert it to HTMLInputElement)
